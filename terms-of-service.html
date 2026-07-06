@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+	<!-- Meta -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="author" content="Awaiken">
+	<!-- Page Title -->
+	<title>Weebix - IT Service And Technology HTML Template</title>
+	<!-- Favicon Icon -->
+	<link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.png">
+	<!-- Google Fonts Css-->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+	<!-- Bootstrap Css -->
+	<link href="assets/css/bootstrap.min.css" rel="stylesheet" media="screen">
+	<!-- SlickNav Css -->
+	<link href="assets/css/slicknav.min.css" rel="stylesheet">
+	<!-- Swiper Css -->
+	<link rel="stylesheet" href="assets/css/swiper-bundle.min.css"> 
+	<!-- Animated Css -->
+	<link href="assets/css/animate.css" rel="stylesheet">
+	<!-- Magnific Popup Core Css File -->
+	<link rel="stylesheet" href="assets/css/magnific-popup.css">
+	<!-- Main Custom Css -->
+	<link href="assets/css/custom.css" rel="stylesheet" media="screen">
+</head>
+<body class="tt-magic-cursor">
+
+   <!-- Preloader Start -->
+	<div class="preloader">
+		<div class="loading-container">
+			<div class="loading"></div>
+			<div id="loading-icon"><img src="assets/images/divaine-tech-logo.png" alt=""></div>
+		</div>
+	</div>
+	<!-- Preloader End -->
+
+	<!-- Magic Cursor Start -->
+	<div id="magic-cursor">
+		<div id="ball"></div>
+	</div>
+	<!-- Magic Cursor End -->
+
+    <!-- Header Start -->
+	<header class="main-header">
+		<div class="header-sticky">
+			<nav class="navbar navbar-expand-lg">
+				<div class="container">
+					<!-- Logo Start -->
+					<a class="navbar-brand" href="./">
+						<img src="assets/images/divaine-tech-logo.png" alt="Logo" width="300px">
+					</a>
+					<!-- Logo End -->
+
+					<!-- Main Menu Start -->
+					<div class="collapse navbar-collapse main-menu">
+                        <div class="nav-menu-wrapper">
+                            <ul class="navbar-nav mr-auto" id="menu">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="index.html">Home</a>
+                                <li>                                
+                                <li class="nav-item"><a class="nav-link" href="about.html">about us</a></li>
+                                <li class="nav-item"><a class="nav-link" href="services.html">services</a></li>
+                                <li class="nav-item"><a class="nav-link" href="portfolio.html">portfolio</a></li> 
+                                <li class="nav-item"><a class="nav-link" href="faqs.html">FAQ</a></li> 
+                                <li class="nav-item highlighted-menu"><a class="nav-link" href="contact-us.html">free consultation</a></li>                               
+                            </ul>
+                        </div>
+                        <!-- Let’s Start Button Start -->
+                        <div class="header-btn d-inline-flex">
+                            <a href="contact-us.html" class="btn-default">free consultation</a>
+                        </div>
+                        <!-- Let’s Start Button End -->
+					</div>
+					<!-- Main Menu End -->
+
+					<div class="navbar-toggle"></div>
+				</div>
+			</nav>
+			<div class="responsive-menu"></div>
+		</div>
+	</header>
+	<!-- Header End -->
+
+    <!-- Page Header Start -->
+	<div class="page-header">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<!-- Page Header Box Start -->
+					<div class="page-header-box">
+						<h1 class="text-anime-style-3">Terms Of Services</h1>
+						<nav class="wow fadeInUp" data-wow-delay="0.25s">
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="#">home</a></li>
+								<li class="breadcrumb-item active" aria-current="page">Terms Of Services</li>
+							</ol>
+						</nav>
+					</div>
+					<!-- Page Header Box End -->
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Page Header End -->
+ 
+    <style> 
+        /* CONTENT: numbered accordion cards, single column, centered */
+        .content-wrap{ 
+            margin:0 auto;
+            padding:70px 0px 100px;
+        }
+        .intro-note{
+            color:#6B7280;
+            font-size:1rem;
+            margin:0 0 44px;
+            padding:22px 26px;
+            background:#F2F6FA;
+            border-left:4px solid var(--accent-color);
+            border-radius:0 12px 12px 0;
+        }
+
+        .term-card{
+            border:1px solid #E4E9EF;
+            border-radius:16px;
+            margin-bottom:16px;
+            overflow:hidden;
+            transition:border-color 0.2s ease;
+        }
+        .term-card.open{
+            border-color:var(--accent-color);
+        }
+        .term-card summary{
+            list-style:none;
+            cursor:pointer;
+            display:flex;
+            align-items:center;
+            gap:18px;
+            padding:22px 26px;
+            font-weight:800;
+            font-size:1rem;
+        }
+        .term-card summary::-webkit-details-marker{display:none;}
+        .term-card .num{
+            display:inline-flex;
+            align-items:center;
+            justify-content:center;
+            width:38px;
+            height:38px;
+            min-width:38px;
+            border-radius:50%;
+            background:#F2F6FA;
+            color:var(--accent-color);
+            font-size:15px;
+            font-weight:800;
+        }
+        .term-card summary .chevron{
+            margin-left:auto;
+            width:22px;
+            height:22px;
+            min-width:22px;
+            border-radius:50%;
+            background:#F2F6FA;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            transition:transform 0.25s ease;
+        }
+        .term-card[open] summary .chevron{
+            transform:rotate(180deg);
+            background:var(--accent-color);
+        }
+        .term-card[open] summary .chevron svg path{stroke:#1B2430;}
+        .term-card[open] summary .chevron svg{
+            filter:none;
+        }
+        .term-card[open] summary .chevron svg path{stroke:#fff;}
+        .term-body{
+            padding:0 26px 26px 82px;
+        }
+        .term-body p{
+            color:#6B7280;
+            font-size:1rem;
+            margin:0 0 14px;
+        }
+        .term-body ul{
+            color:#6B7280;
+            font-size:15px;
+            padding-left:0;
+            list-style:none;
+            margin:0 0 14px;
+        }
+        .term-body ul li{
+            position:relative;
+            padding-left:24px;
+            margin-bottom:10px;
+            font-size: 1rem;
+        }
+        .term-body ul li::before{
+            content:"—";
+            position:absolute;
+            left:0;
+            color:var(--accent-color);
+            font-weight:800;
+        } 
+        .contact-box{
+            background:#F2F6FA;
+            border-radius:16px;
+            padding:34px 38px;
+            margin-top:36px;
+            text-align:center;
+        }
+        .contact-box h3{
+            margin:0 0 8px;
+            font-size:18px;
+            font-weight:800;
+        }
+        .contact-box p{
+            margin:0 0 4px;
+            color:#6B7280;
+            font-size:1rem;
+        }
+        .contact-box a.email{
+            color:var(--accent-color);
+            font-weight:700;
+        } 
+        .expand-toggle{
+            max-width:840px;
+            margin:0 auto 20px;
+            display:flex;
+            justify-content:flex-end;
+            padding:0 60px;
+        }
+        .expand-toggle button{
+            background:none;
+            border:none;
+            color:var(--accent-color);
+            font-size:13px;
+            font-weight:700;
+            cursor:pointer;
+            padding:6px 0;
+        }
+        .expand-toggle button:hover{text-decoration:underline;}
+        
+        @media (max-width:768px){ 
+            h1.page-title{font-size:30px;}
+            .term-body{padding-left:26px;} 
+        }
+    </style>
+
+    <div class="container content-wrap">
+
+    <p class="intro-note">Welcome to Divaine Tech. By accessing our website or engaging our web design, SEO, digital marketing, or app development services, you agree to be bound by the following Terms of Service. Tap any section below to expand it.</p>
+
+        <div class="term-card">
+            <summary><span class="num">1</span>Acceptance of Terms</summary>
+            <div class="term-body">
+            <p>By accessing or using our website and services, you agree to comply with and be bound by these Terms of Service, along with our Privacy Policy and Cookie Policy. If you do not agree with any part of these terms, please discontinue use of our website and services.</p>
+            </div>
+        </div>
+
+        <div class="term-card">
+            <summary><span class="num">2</span>Our Services</summary>
+            <div class="term-body">
+            <p>Divaine Tech provides web design, search engine optimization, digital marketing, and mobile app development services. Specific deliverables, timelines, and pricing for any engagement will be set out in a separate proposal, quote, or contract agreed upon between you and Divaine Tech.</p>
+            <ul>
+                <li>Services are provided on a project or retainer basis as agreed in writing</li>
+                <li>We reserve the right to refuse or discontinue service to any client at our discretion</li>
+                <li>Free consultations do not constitute a binding service agreement</li>
+            </ul>
+            </div>
+        </div>
+
+    <div class="term-card">
+        <summary><span class="num">3</span>Accounts &amp; Consultations</summary>
+        <div class="term-body">
+        <p>When you request a consultation or create an account with us, you agree to provide accurate, current, and complete information. You are responsible for maintaining the confidentiality of any login credentials and for all activity that occurs under your account.</p>
+        </div>
+    </div>
+
+    <div class="term-card">
+        <summary><span class="num">4</span>Payment Terms</summary>
+        <div class="term-body">
+        <p>Fees for services will be outlined in your project proposal or contract. Unless otherwise agreed:</p>
+        <ul>
+            <li>Invoices are due within the timeframe stated on the invoice</li>
+            <li>Late payments may result in paused work or additional fees</li>
+            <li>Deposits or upfront payments for new projects are non-refundable once work has begun</li>
+            <li>All fees are exclusive of applicable taxes unless stated otherwise</li>
+        </ul>
+        </div>
+    </div>
+
+    <div class="term-card">
+        <summary><span class="num">5</span>Intellectual Property</summary>
+        <div class="term-body">
+        <p>Unless otherwise agreed in writing, Divaine Tech retains ownership of all pre-existing tools, frameworks, and proprietary code used in delivering services. Upon full payment, clients receive ownership or a license to use the final deliverables as specified in their project agreement.</p>
+        <p>All content on our website, including text, graphics, logos, and design, is the property of Divaine Tech and may not be reproduced without permission.</p>
+        </div>
+    </div>
+
+    <div class="term-card">
+        <summary><span class="num">6</span>Acceptable Use</summary>
+        <div class="term-body">
+        <p>When using our website or services, you agree not to:</p>
+        <ul>
+            <li>Violate any applicable local, national, or international law</li>
+            <li>Transmit harmful code, malware, or engage in unauthorized access attempts</li>
+            <li>Use our services to build products or content that infringe on third-party rights</li>
+            <li>Misrepresent your identity or affiliation with any person or entity</li>
+        </ul>
+        </div>
+    </div>
+
+    <div class="term-card">
+        <summary><span class="num">7</span>Disclaimers &amp; Warranty</summary>
+        <div class="term-body">
+        <p>Our website and services are provided "as is" and "as available" without warranties of any kind, either express or implied. We do not guarantee that our services will be uninterrupted, error-free, or that specific marketing or SEO results will be achieved, as outcomes depend on factors outside our control.</p>
+        </div>
+    </div>
+
+    <div class="term-card">
+        <summary><span class="num">8</span>Limitation of Liability</summary>
+        <div class="term-body">
+        <p>To the fullest extent permitted by law, Divaine Tech shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of our website or services. Our total liability for any claim shall not exceed the amount you paid us for the service giving rise to the claim.</p>
+        </div>
+    </div>
+
+    <div class="term-card">
+        <summary><span class="num">9</span>Termination</summary>
+        <div class="term-body">
+        <p>We reserve the right to suspend or terminate access to our website or services at any time, with or without notice, for conduct that we believe violates these Terms or is harmful to other users, us, or third parties. Either party may terminate an ongoing service agreement as outlined in the relevant contract.</p>
+        </div>
+    </div>
+
+    <div class="term-card">
+        <summary><span class="num">10</span>Governing Law</summary>
+        <div class="term-body">
+        <p>These Terms of Service shall be governed by and construed in accordance with the laws of the jurisdiction in which Divaine Tech is registered, without regard to its conflict of law provisions. Any disputes arising under these terms will be subject to the exclusive jurisdiction of the courts in that location.</p>
+        </div>
+    </div>
+
+    <div class="term-card">
+        <summary><span class="num">11</span>Changes to Terms</summary>
+        <div class="term-body">
+        <p>We may revise these Terms of Service from time to time. Updates will be posted on this page with a revised "Last updated" date. Continued use of our website or services after changes are posted constitutes acceptance of the revised terms.</p>
+        </div>
+    </div>
+
+    <div class="contact-box">
+        <h3>Questions about these terms?</h3>
+        <p>Reach out to our team and we'll be happy to help.</p>
+        <p><a class="email" href="mailto:Info@Domainname.com">Info@Domainname.com</a> &nbsp;•&nbsp; (+0) 123 456 789</p>
+    </div>
+
+    </div>
+ 
+    <!-- Footer Start -->
+	<footer class="main-footer">
+        <div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<!-- Mega Footer Start -->
+					<div class="mega-footer">
+						<div class="row">
+							<div class="col-lg-6 col-md-12">
+								<!-- Footer About Start -->
+								<div class="footer-about">
+									<figure>
+										<img src="assets/images/divaine-tech-logo.png" alt="" width="300px">
+									</figure>
+									<p style="max-width: 30rem;">DIVAINE TECH is a trusted digital solutions company specializing in web development, mobile app development, UI/UX design, digital marketing, SEO, and AI-powered solutions. We help businesses transform ideas into innovative, scalable, and results-driven digital experiences.</p>
+                                    <ul>
+                                        <li><a href="#">info@domainname.com</a></li>
+                                        <li><a href="#">(+0) 123 456 789</a></li>
+                                    </ul>
+								</div>
+								<!-- Footer About End -->
+							</div>
+
+							<div class="col-lg-2 col-md-4">
+								<!-- Footer Links Start -->
+								<div class="footer-links">
+									<h2>pages</h2>
+									<ul>
+										<li><a href="index.html">Home</a></li>
+										<li><a href="about.html">About Us</a></li>
+										<li><a href="services.html">Services</a></li> 
+										<li><a href="contact-us.html">Contact Us</a></li>
+                                        <li><a href="faqs.html">Faqs</a></li>
+									</ul>
+								</div>
+								<!-- Footer Links End -->
+							</div>
+
+							<div class="col-lg-2 col-md-4">
+								<!-- Footer Links Start -->
+								<div class="footer-links">
+									<h2>Socials</h2>
+									<ul>
+										<li><a href="javascript:void();"><i class="fab fa-instagram me-2"></i>Instagram</a></li>
+										<li><a href="javascript:void();"><i class="fab fa-facebook-f me-2"></i>Facebook</a></li>
+										<li><a href="javascript:void();"><i class="fab fa-twitter me-2"></i>Twitter</a></li>
+										<li><a href="javascript:void();"><i class="fab fa-linkedin-in me-2"></i>Linkedin</a></li>
+                                        <!-- <li><a href="javascript:void();"><i class="fab fa-pinterest-p me-2"></i>Pinterest</a></li> -->
+                                        <li><a href="javascript:void();"><i class="fab fa-telegram me-2"></i>Telegram</a></li>
+									</ul>
+								</div>
+								<!-- Footer Links End -->
+							</div>
+
+							<div class="col-lg-2 col-md-4">
+								<!-- Footer Links Start -->
+								<div class="footer-links">
+									<h2>services</h2>
+									<ul>
+										<li><a href="javascript:void();">Web Development</a></li>
+										<li><a href="javascript:void();">Digital Marketing</a></li>
+										<li><a href="javascript:void();">Mobile App Development</a></li> 
+										<li><a href="javascript:void();">Networking Services</a></li>
+									</ul>
+								</div>
+								<!-- Footer Links End -->
+							</div>
+						</div>
+					</div>
+					<!-- Mega Footer End -->
+
+					<!-- Copyright Footer Start -->
+					<div class="footer-copyright">
+                        <div class="row align-items-center">
+                            <div class="col-lg-6">
+                                <!-- Footer Copyright Content Start -->
+								<div class="footer-copyright-text">
+									<p>Copyright © 2026 Divaine Tech. All rights reserved.</p>
+								</div>
+								<!-- Footer Copyright Content End -->
+                            </div>
+                            <div class="col-lg-6">
+                                <!-- Footer Policy Links Start -->
+                                <div class="footer-policy-links">
+                                    <ul>
+                                        <li><a href="careers.html">Carrer</a></li>
+                                        <li><a href="cookie-policy.html">Cookie Policy</a></li>
+                                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                                        <li><a href="terms-of-service.html">Terms Of Service</a></li>
+                                        <li class="highlighted"><a href="#top">Go To Top</a></li>
+                                    </ul>
+                                </div>
+                                <!-- Footer Policy Links End -->
+                            </div>
+                        </div>						
+					</div>
+					<!-- Copyright Footer End -->
+				</div>
+			</div>
+		</div>
+    </footer>
+    <!-- Footer End -->
+
+    <!-- Jquery Library File -->
+    <script src="assets/js/jquery-3.7.1.min.js"></script>
+    <!-- Bootstrap js file -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <!-- Validator js file -->
+    <script src="assets/js/validator.min.js"></script>
+    <!-- SlickNav js file -->
+    <script src="assets/js/jquery.slicknav.js"></script>
+    <!-- Swiper js file -->
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <!-- Counter js file -->
+    <script src="assets/js/jquery.waypoints.min.js"></script>
+
+    <script src="assets/js/jquery.counterup.min.js"></script>
+    <!-- Isotop js file -->
+    <script src="assets/js/isotope.min.js"></script>
+    <!-- Magnific js file -->
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <!-- SmoothScroll -->
+    <script src="assets/js/SmoothScroll.js"></script>
+    <!-- MagicCursor js file -->
+    <script src="assets/js/gsap.min.js"></script>
+    <script src="assets/js/magiccursor.js"></script>
+    <!-- Text Effect js file -->
+    <script src="assets/js/SplitText.js"></script>
+    <script src="assets/js/ScrollTrigger.min.js"></script>
+    <!-- Wow js file -->
+    <script src="assets/js/wow.js"></script>
+    <!-- Main Custom js file -->
+    <script src="assets/js/function.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,1542 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="Awaiken">
+    <!-- Page Title -->
+    <title>Weebix - IT Service And Technology HTML Template</title>
+    <!-- Favicon Icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.png">
+    <!-- Google Fonts Css-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <!-- Bootstrap Css -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <!-- SlickNav Css -->
+    <link href="assets/css/slicknav.min.css" rel="stylesheet">
+    <!-- Swiper Css -->
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <!-- Animated Css -->
+    <link href="assets/css/animate.css" rel="stylesheet">
+    <!-- Magnific Popup Core Css File -->
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <!-- Main Custom Css -->
+    <link href="assets/css/custom.css" rel="stylesheet" media="screen">
+</head>
+
+<body class="tt-magic-cursor">
+
+    <!-- Preloader Start -->
+    <div class="preloader">
+        <div class="loading-container">
+            <div class="loading"></div>
+            <div id="loading-icon"><img src="assets/images/divaine-tech-logo.png" alt=""></div>
+        </div>
+    </div>
+    <!-- Preloader End -->
+
+    <!-- Magic Cursor Start -->
+    <div id="magic-cursor">
+        <div id="ball"></div>
+    </div>
+    <!-- Magic Cursor End -->
+
+    <!-- Header Start -->
+    <header class="main-header">
+        <div class="header-sticky">
+            <nav class="navbar navbar-expand-lg">
+                <div class="container">
+                    <!-- Logo Start -->
+                    <a class="navbar-brand" href="./">
+                        <img src="assets/images/divaine-tech-logo.png" alt="Logo" width="300px">
+                    </a>
+                    <!-- Logo End -->
+
+                    <!-- Main Menu Start -->
+                    <div class="collapse navbar-collapse main-menu">
+                        <div class="nav-menu-wrapper">
+                            <ul class="navbar-nav mr-auto" id="menu">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="index.html">Home</a>
+                                <li>
+                                <li class="nav-item"><a class="nav-link" href="about.html">about us</a></li>
+                                <li class="nav-item"><a class="nav-link" href="services.html">services</a></li>
+                                <li class="nav-item"><a class="nav-link" href="portfolio.html">portfolio</a></li>
+                                <li class="nav-item"><a class="nav-link" href="faqs.html">FAQ</a></li>
+                                <li class="nav-item highlighted-menu"><a class="nav-link" href="contact-us.html">free
+                                        consultation</a></li>
+                            </ul>
+                        </div>
+                        <!-- Let’s Start Button Start -->
+                        <div class="header-btn d-inline-flex">
+                            <a href="contact-us.html" class="btn-default">free consultation</a>
+                        </div>
+                        <!-- Let’s Start Button End -->
+                    </div>
+                    <!-- Main Menu End -->
+
+                    <div class="navbar-toggle"></div>
+                </div>
+            </nav>
+            <div class="responsive-menu"></div>
+        </div>
+    </header>
+    <!-- Header End -->
+
+    <style>
+        .eyebrow {
+            color: var(--accent-color);
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: .04em;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .eyebrow::before {
+            content: "";
+            width: 16px;
+            height: 2px;
+            background: var(--accent-color);
+            display: inline-block;
+            border-radius: 2px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--accent-color);
+            color: #fff;
+            font-weight: 600;
+            font-size: 14.5px;
+            padding: 13px 24px;
+            border-radius: var(--radius-pill);
+            border: none;
+            cursor: pointer;
+            transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+            box-shadow: 0 8px 20px -8px rgba(31, 160, 233, .55);
+            white-space: nowrap;
+        }
+
+        .btn:hover {
+            background: var(--accent-color);
+            transform: translateY(-2px);
+            color: #fff;
+        }
+
+        .btn-ghost {
+            background: transparent;
+            color: #131B2E;
+            border: 1.5px solid E3E8F2;
+            box-shadow: none;
+        }
+
+        .btn-ghost:hover {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+            background: transparent;
+        }
+
+        .btn svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        /* ---------- HERO ---------- */
+        .hero {
+            background: #EEF2FA;
+            padding: 70px 0 90px;
+        }
+
+        .hero-inner {
+            display: grid;
+            grid-template-columns: 1.1fr .9fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: 46px;
+            color: #131B2E;
+        }
+
+        .hero h1 .accent {
+            color: var(--accent-color);
+        }
+
+        .hero p.lead {
+            color: #6B7280;
+            margin: 20px 0 28px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 36px;
+            margin-top: 36px;
+        }
+
+        .hero-stats div strong {
+            font-family: 'Poppins', sans-serif;
+            font-size: 26px;
+            display: block;
+            color: #131B2E;
+        }
+
+        .hero-stats div span {
+            font-size: 13px;
+            color: #6B7280;
+        }
+
+        .hero-art {
+            position: relative;
+        }
+
+        .hero-art .frame {
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px -25px rgba(19, 27, 46, .25);
+        }
+
+        .hero-art .frame img {
+            width: 100%;
+            height: 340px;
+            object-fit: cover;
+        }
+
+        .float-card {
+            position: absolute;
+            background: #fff;
+            border-radius: 16px;
+            padding: 14px 18px;
+            box-shadow: 0 20px 40px -20px rgba(19, 27, 46, .35);
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .float-card.c1 {
+            top: -22px;
+            left: -30px;
+        }
+
+        .float-card.c2 {
+            bottom: -24px;
+            right: -20px;
+        }
+
+        .float-card .ic {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: var(--accent-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .float-card .ic svg {
+            width: 18px;
+            height: 18px;
+            stroke: #fff;
+        }
+
+        .float-card b {
+            font-size: 14px;
+            display: block;
+        }
+
+        .float-card small {
+            color: #6B7280;
+            font-size: 12px;
+        }
+
+        /* ---------- SECTION HEADS ---------- */
+        .section {
+            padding: 90px 0;
+        }
+
+        .section-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 48px;
+            gap: 24px;
+        }
+
+        .section-head h2 {
+            font-size: 32px;
+            color: #131B2E;
+        }
+
+        .section-head p {
+            color: #6B7280;
+            max-width: 480px;
+            font-size: 1rem;
+            margin-top: 10px;
+        }
+
+        /* ---------- VALUES ---------- */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 22px;
+        }
+
+        .value-card {
+            background: #fff;
+            border: 1px solid #E3E8F2;
+            border-radius: 14px;
+            padding: 30px 26px;
+            transition: transform .2s ease, box-shadow .2s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px -22px rgba(19, 27, 46, .25);
+        }
+
+        .value-card .ic {
+            width: 46px;
+            height: 46px;
+            border-radius: 12px;
+            background: #EEF2FA;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 18px;
+        }
+
+        .value-card .ic svg {
+            width: 22px;
+            height: 22px;
+            stroke: var(--accent-color);
+        }
+
+        .value-card h4 {
+            font-size: 16.5px;
+            margin-bottom: 8px;
+        }
+
+        .value-card p {
+            font-size: 1rem;
+            color: #6B7280;
+        }
+
+        /* ---------- OPEN POSITIONS (signature interactive) ---------- */
+        .positions {
+            background: #EEF2FA;
+        }
+
+        .filters {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 9px 18px;
+            border-radius: 999px;
+            border: 1.5px solid #E3E8F2;
+            background: #fff;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #6B7280;
+            cursor: pointer;
+            transition: all .15s ease;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--accent-color);
+            border-color: var(--accent-color);
+            color: #fff;
+        }
+
+        .job-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .job {
+            background: #fff;
+            border: 1px solid #E3E8F2;
+            border-radius: 14px;
+            overflow: hidden;
+            transition: box-shadow .2s ease;
+        }
+
+        .job:hover {
+            box-shadow: 0 16px 34px -22px rgba(19, 27, 46, .3);
+        }
+
+        .job-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 22px 26px;
+            cursor: pointer;
+            gap: 20px;
+        }
+
+        .job-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .job-tag {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            padding: 5px 0px;
+            border-radius: 8px;
+            text-transform: uppercase;
+            letter-spacing: .03em;
+        }
+
+        .job-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 16.5px;
+        }
+
+        .job-meta {
+            display: flex;
+            gap: 16px;
+            color: #6B7280;
+            font-size: 13px;
+            margin-top: 6px;
+        }
+
+        .job-meta span {
+            display: flex;
+            align-items: center;
+            font-size: 1rem;
+            gap: 5px;
+        }
+
+        .job-meta svg {
+            width: 13px;
+            height: 13px;
+            stroke: #9AA3B2;
+        }
+
+        .job-toggle {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            border: 1.5px solid #E3E8F2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: transform .25s ease, background .2s ease, border-color .2s ease;
+        }
+
+        .job-toggle svg {
+            width: 14px;
+            height: 14px;
+            stroke: #131B2E;
+        }
+
+        .job.open .job-toggle {
+            background: var(--accent-color);
+            border-color: var(--accent-color);
+            transform: rotate(45deg);
+        }
+
+        .job.open .job-toggle svg {
+            stroke: #fff;
+        }
+
+        .job-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .35s ease;
+        }
+
+        .job.open .job-body {
+            max-height: 340px;
+        }
+
+        .job-body-inner {
+            padding: 0 26px 28px;
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 30px;
+        }
+
+        .job-body-inner p {
+            font-size: 1rem;
+            color: #6B7280;
+            margin-bottom: 14px;
+        }
+
+        .job-body-inner ul {
+            list-style: none;
+            font-size: 13.5px;
+            color: #6B7280;
+        }
+
+        .job-body-inner ul li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+
+        .job-body-inner ul li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--accent-color);
+        }
+
+        .job-apply {
+            margin-top: 10px;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 50px 0;
+            color: #6B7280;
+            font-size: 14px;
+            display: none;
+        }
+
+        /* ---------- PERKS ---------- */
+        .perks-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .perk {
+            background: #fff;
+            border: 1px solid #E3E8F2;
+            border-radius: 14px;
+            padding: 30px 26px;
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .perk .ic {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: #EEF2FA;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .perk .ic svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--accent-color);
+        }
+
+        .perk h4 {
+            font-size: 15.5px;
+            margin-bottom: 6px;
+        }
+
+        .perk p {
+            font-size: 1rem;
+            color: #6B7280;
+        }
+
+        /* ---------- LIFE GALLERY ---------- */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 150px;
+            gap: 16px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 16px;
+        }
+
+        .gallery .g1 {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        .gallery .g4 {
+            grid-column: span 2;
+        }
+
+        /* ---------- PROCESS ---------- */
+        .process {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+            position: relative;
+        }
+
+        .process::before {
+            content: "";
+            position: absolute;
+            top: 23px;
+            left: 12%;
+            right: 12%;
+            height: 2px;
+            background: repeating-linear-gradient(90deg, #E3E8F2 0 8px, transparent 8px 16px);
+        }
+
+        .step {
+            position: relative;
+            text-align: center;
+            padding: 0 14px;
+        }
+
+        .step .num {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background: #131B2E;
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .step:nth-child(2) .num,
+        .step:nth-child(4) .num {
+            background: var(--accent-color);
+        }
+
+        .step h4 {
+            font-size: 15.5px;
+            margin-bottom: 8px;
+        }
+
+        .step p {
+            font-size: 1rem;
+            color: #6B7280;
+        }
+
+        /* ---------- TESTIMONIALS ---------- */
+        .quotes {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .quote-card {
+            background: #fff;
+            border: 1px solid #E3E8F2;
+            border-radius: 14px;
+            padding: 28px;
+        }
+
+        .stars {
+            color: #F5A623;
+            font-size: 13px;
+            letter-spacing: 2px;
+            margin-bottom: 14px;
+        }
+
+        .quote-card p.txt {
+            font-size: 1rem;
+            color: #6B7280;
+            margin-bottom: 20px;
+        }
+
+        .who {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .who img {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .who b {
+            font-size: 14px;
+            display: block;
+        }
+
+        .who span {
+            font-size: 1rem;
+            color: #6B7280;
+        }
+
+        /* ---------- CTA ---------- */
+        .cta {
+            background: #131B2E;
+            border-radius: 28px;
+            padding: 56px 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            color: #fff;
+        }
+
+        .cta h2 {
+            color: #fff;
+            font-size: 28px;
+            max-width: 480px;
+        }
+
+        .cta p {
+            color: #B7C0D1;
+            margin-top: 10px;
+            font-size: 1rem;
+            max-width: 440px;
+        }
+
+
+        @media(max-width:860px) {
+
+            .values-grid,
+            .perks-grid,
+            .quotes {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .process {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+
+            .process::before {
+                display: none;
+            }
+
+            .job-body-inner {
+                grid-template-columns: 1fr;
+            }
+
+            .cta {
+                flex-direction: column;
+                text-align: center;
+                padding: 40px 28px;
+            }
+        }
+    </style>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="wrap hero-inner container">
+            <div>
+                <div class="eyebrow">Careers</div>
+                <h1>Build Your Career<br>While You Build <span class="accent">Great Work</span></h1>
+                <p class="lead">We're a small team of designers, developers and strategists who ship real websites and
+                    campaigns for real businesses. Come do the best work of your career alongside people who care about
+                    the craft.</p>
+                <a href="#positions" class="btn">View Open Roles ↗</a>
+                <div class="hero-stats">
+                    <div><strong>18</strong><span>Team Members</span></div>
+                    <div><strong>4.8/5</strong><span>Glassdoor Rating</span></div>
+                    <div><strong>100%</strong><span>Remote-Friendly</span></div>
+                </div>
+            </div>
+            <div class="hero-art">
+                <div class="frame">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=900&q=80"
+                        alt="Team collaborating">
+                </div>
+                <div class="float-card c1">
+                    <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                            <path d="M20 6L9 17l-5-5" />
+                        </svg></div>
+                    <div><b>Fast Hiring</b><small>2-week process</small></div>
+                </div>
+                <div class="float-card c2">
+                    <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                            <path d="M12 2v20M2 12h20" />
+                        </svg></div>
+                    <div><b>6 Open Roles</b><small>Apply today</small></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY WORK WITH US -->
+    <section class="section container">
+        <div class="wrap">
+            <div class="section-head">
+                <div>
+                    <div class="eyebrow">Why Divaine Tech</div>
+                    <h2>A place built for people who love the work</h2>
+                </div>
+                <p>No bureaucracy, no busywork — just meaningful projects, direct ownership, and a team that has your
+                    back.</p>
+            </div>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                            <path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z" />
+                        </svg></div>
+                    <h4>Real Ownership</h4>
+                    <p>You lead projects end-to-end, not just tickets from a backlog.</p>
+                </div>
+                <div class="value-card">
+                    <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                            <circle cx="12" cy="8" r="4" />
+                            <path d="M4 21c0-4 4-6 8-6s8 2 8 6" />
+                        </svg></div>
+                    <h4>Small, Senior Team</h4>
+                    <p>Work closely with experienced people, not layers of management.</p>
+                </div>
+                <div class="value-card">
+                    <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                            <path d="M12 2a10 10 0 100 20 10 10 0 000-20z" />
+                            <path d="M12 6v6l4 2" />
+                        </svg></div>
+                    <h4>Flexible Hours</h4>
+                    <p>Work when you're sharpest — async-first, outcomes over hours.</p>
+                </div>
+                <div class="value-card">
+                    <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                            <path d="M3 3v18h18M7 15l4-4 3 3 5-6" />
+                        </svg></div>
+                    <h4>Room to Grow</h4>
+                    <p>Clear paths and a real budget for courses, tools and conferences.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OPEN POSITIONS -->
+    <section class="section positions" id="positions">
+        <div class="wrap container">
+            <div class="section-head">
+                <div>
+                    <div class="eyebrow">Open Positions</div>
+                    <h2>Find your next role</h2>
+                </div>
+                <p>Every role works directly with clients — this is a place to make your portfolio, not just your
+                    paycheck.</p>
+            </div>
+
+            <div class="filters" id="filters">
+                <button class="filter-btn active" data-filter="all">All Roles</button>
+                <button class="filter-btn" data-filter="design">Design</button>
+                <button class="filter-btn" data-filter="engineering">Engineering</button>
+                <button class="filter-btn" data-filter="marketing">Marketing</button>
+                <button class="filter-btn" data-filter="ops">Operations</button>
+            </div>
+
+            <div class="job-list" id="jobList">
+
+                <div class="job" data-cat="design">
+                    <div class="job-row">
+                        <div class="job-left">
+                            <div>
+                                <div class="job-tag">Design</div>
+                                <div class="job-title">Senior Product Designer</div>
+                                <div class="job-meta">
+                                    <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                            <path d="M12 21s-7-6-7-11a7 7 0 0114 0c0 5-7 11-7 11z" />
+                                            <circle cx="12" cy="10" r="2.5" />
+                                        </svg>Remote / Ahmedabad</span>
+                                    <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                            <circle cx="12" cy="12" r="9" />
+                                            <path d="M12 7v5l3 3" />
+                                        </svg>Full-time</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="job-toggle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                <path d="M12 5v14M5 12h14" />
+                            </svg></div>
+                    </div>
+                    <div class="job-body">
+                        <div class="job-body-inner">
+                            <div>
+                                <p>Own the visual design of client websites and product experiences from wireframe to
+                                    hand-off, working directly with founders and marketing teams.</p>
+                                <a href="#" class="btn job-apply">Apply Now ↗</a>
+                            </div>
+                            <ul>
+                                <li>4+ years in web/product design</li>
+                                <li>Strong portfolio of shipped work</li>
+                                <li>Comfortable presenting to clients</li>
+                                <li>Figma fluency required</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="job" data-cat="engineering">
+                    <div class="job-row">
+                        <div class="job-left">
+                            <div>
+                                <div class="job-tag">Engineering</div>
+                                <div class="job-title">Front-End Developer (React)</div>
+                                <div class="job-meta">
+                                    <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                            <path d="M12 21s-7-6-7-11a7 7 0 0114 0c0 5-7 11-7 11z" />
+                                            <circle cx="12" cy="10" r="2.5" />
+                                        </svg>Remote</span>
+                                    <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                            <circle cx="12" cy="12" r="9" />
+                                            <path d="M12 7v5l3 3" />
+                                        </svg>Full-time</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="job-toggle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                <path d="M12 5v14M5 12h14" />
+                            </svg></div>
+                    </div>
+                    <div class="job-body">
+                        <div class="job-body-inner">
+                            <div>
+                                <p>Build fast, pixel-accurate marketing sites and web apps for our client roster using
+                                    React and modern tooling.</p>
+                                <a href="#" class="btn job-apply">Apply Now ↗</a>
+                            </div>
+                            <ul>
+                                <li>2+ years with React / Next.js</li>
+                                <li>Solid CSS and responsive layout skills</li>
+                                <li>Experience with CMS integrations a plus</li>
+                                <li>Git-based workflow</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="job" data-cat="engineering">
+                    <div class="job-row">
+                        <div class="job-left">
+                            <div>
+                                <div class="job-tag">Engineering</div>
+                                <div class="job-title">Mobile App Developer (Flutter)</div>
+                                <div class="job-meta">
+                                    <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                            <path d="M12 21s-7-6-7-11a7 7 0 0114 0c0 5-7 11-7 11z" />
+                                            <circle cx="12" cy="10" r="2.5" />
+                                        </svg>Ahmedabad</span>
+                                    <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                            <circle cx="12" cy="12" r="9" />
+                                            <path d="M12 7v5l3 3" />
+                                        </svg>Full-time</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="job-toggle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                <path d="M12 5v14M5 12h14" />
+                            </svg></div>
+                    </div>
+                    <div class="job-body">
+                        <div class="job-body-inner">
+                            <div>
+                                <p>Ship cross-platform mobile apps for clients across e-commerce, health and logistics,
+                                    from architecture to app-store release.</p>
+                                <a href="#" class="btn job-apply">Apply Now ↗</a>
+                            </div>
+                            <ul>
+                                <li>2+ years shipping Flutter or React Native apps</li>
+                                <li>Comfortable with REST/GraphQL integrations</li>
+                                <li>Experience publishing to App Store / Play Store</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="job" data-cat="marketing">
+                    <div class="job-row">
+                        <div class="job-left">
+                            <div>
+                                <div class="job-tag">Marketing</div>
+                                <div class="job-title">Digital Marketing Strategist</div>
+                                <div class="job-meta">
+                                    <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                            <path d="M12 21s-7-6-7-11a7 7 0 0114 0c0 5-7 11-7 11z" />
+                                            <circle cx="12" cy="10" r="2.5" />
+                                        </svg>Remote</span>
+                                    <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                            <circle cx="12" cy="12" r="9" />
+                                            <path d="M12 7v5l3 3" />
+                                        </svg>Full-time</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="job-toggle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                <path d="M12 5v14M5 12h14" />
+                            </svg></div>
+                    </div>
+                    <div class="job-body">
+                        <div class="job-body-inner">
+                            <div>
+                                <p>Plan and run SEO and paid campaigns for our clients, turning traffic into qualified
+                                    leads and reporting on what actually moves revenue.</p>
+                                <a href="#" class="btn job-apply">Apply Now ↗</a>
+                            </div>
+                            <ul>
+                                <li>3+ years in SEO/SEM</li>
+                                <li>Hands-on with Google Ads & Analytics</li>
+                                <li>Clear, client-ready reporting skills</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="job" data-cat="marketing">
+                    <div class="job-row">
+                        <div class="job-left">
+                            <div>
+                                <div class="job-tag">Marketing</div>
+                                <div class="job-title">Content & Social Media Executive</div>
+                                <div class="job-meta">
+                                    <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                            <path d="M12 21s-7-6-7-11a7 7 0 0114 0c0 5-7 11-7 11z" />
+                                            <circle cx="12" cy="10" r="2.5" />
+                                        </svg>Remote</span>
+                                    <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                            <circle cx="12" cy="12" r="9" />
+                                            <path d="M12 7v5l3 3" />
+                                        </svg>Part-time</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="job-toggle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                <path d="M12 5v14M5 12h14" />
+                            </svg></div>
+                    </div>
+                    <div class="job-body">
+                        <div class="job-body-inner">
+                            <div>
+                                <p>Write and schedule content across blog and social for both Divaine Tech and client
+                                    accounts, keeping every voice on-brand.</p>
+                                <a href="#" class="btn job-apply">Apply Now ↗</a>
+                            </div>
+                            <ul>
+                                <li>1+ years writing for brands</li>
+                                <li>Comfortable with content calendars</li>
+                                <li>Basic design/Canva skills a plus</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="job" data-cat="ops">
+                    <div class="job-row">
+                        <div class="job-left">
+                            <div>
+                                <div class="job-tag">Operations</div>
+                                <div class="job-title">Project Coordinator</div>
+                                <div class="job-meta">
+                                    <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                            <path d="M12 21s-7-6-7-11a7 7 0 0114 0c0 5-7 11-7 11z" />
+                                            <circle cx="12" cy="10" r="2.5" />
+                                        </svg>Ahmedabad</span>
+                                    <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                            <circle cx="12" cy="12" r="9" />
+                                            <path d="M12 7v5l3 3" />
+                                        </svg>Full-time</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="job-toggle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                <path d="M12 5v14M5 12h14" />
+                            </svg></div>
+                    </div>
+                    <div class="job-body">
+                        <div class="job-body-inner">
+                            <div>
+                                <p>Keep client projects on schedule and on scope — coordinating designers, developers
+                                    and clients through every milestone.</p>
+                                <a href="#" class="btn job-apply">Apply Now ↗</a>
+                            </div>
+                            <ul>
+                                <li>1-2 years in project coordination</li>
+                                <li>Excellent written communication</li>
+                                <li>Familiarity with tools like Asana/ClickUp</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <p class="no-results" id="noResults">No open roles in this category right now — check back soon or send us
+                your resume anyway.</p>
+        </div>
+    </section>
+
+    <!-- PERKS -->
+    <section class="section">
+        <div class="wrap container">
+            <div class="section-head">
+                <div>
+                    <div class="eyebrow">Perks & Benefits</div>
+                    <h2>What you get, beyond the paycheck</h2>
+                </div>
+            </div>
+            <div class="perks-grid">
+                <div class="perk">
+                    <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                            <path d="M4 4h16v16H4z" opacity="0" />
+                            <path
+                                d="M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V6a2 2 0 012-2z" />
+                        </svg></div>
+                    <div>
+                        <h4>Paid Time Off</h4>
+                        <p>Generous leave plus your birthday off, always.</p>
+                    </div>
+                </div>
+                <div class="perk">
+                    <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                            <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+                        </svg></div>
+                    <div>
+                        <h4>Health Coverage</h4>
+                        <p>Medical insurance for you and your family.</p>
+                    </div>
+                </div>
+                <div class="perk">
+                    <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                            <path d="M12 2l2.4 6.6L21 11l-6.6 2.4L12 20l-2.4-6.6L3 11l6.6-2.4z" />
+                        </svg></div>
+                    <div>
+                        <h4>Learning Budget</h4>
+                        <p>Yearly stipend for courses, books and conferences.</p>
+                    </div>
+                </div>
+                <div class="perk">
+                    <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                            <rect x="3" y="4" width="18" height="16" rx="2" />
+                            <path d="M3 9h18M8 2v4M16 2v4" />
+                        </svg></div>
+                    <div>
+                        <h4>Work From Anywhere</h4>
+                        <p>Remote-first setup, with an office if you want one.</p>
+                    </div>
+                </div>
+                <div class="perk">
+                    <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                            <circle cx="12" cy="12" r="9" />
+                            <path d="M9 12l2 2 4-4" />
+                        </svg></div>
+                    <div>
+                        <h4>Performance Bonuses</h4>
+                        <p>Rewarded when a project — and the client — win.</p>
+                    </div>
+                </div>
+                <div class="perk">
+                    <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
+                            <circle cx="12" cy="7" r="4" />
+                        </svg></div>
+                    <div>
+                        <h4>Team Retreats</h4>
+                        <p>An annual offsite to reset, plan, and celebrate wins.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LIFE AT DIVAINE -->
+    <section class="section" style="padding-top:0;">
+        <div class="wrap container">
+            <div class="section-head">
+                <div>
+                    <div class="eyebrow">Life At Divaine</div>
+                    <h2>A day in the studio</h2>
+                </div>
+                <p>Working sessions, client calls, and the odd celebratory coffee run.</p>
+            </div>
+            <div class="gallery">
+                <img class="g1"
+                    src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=80"
+                    alt="Team working">
+                <img class="g2"
+                    src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=500&q=80"
+                    alt="Meeting">
+                <img class="g3"
+                    src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=500&q=80"
+                    alt="Desk setup">
+                <img class="g4"
+                    src="https://images.unsplash.com/photo-1522071901873-411886a10004?auto=format&fit=crop&w=800&q=80"
+                    alt="Team discussion">
+            </div>
+        </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="section" style="background:#EEF2FA;">
+        <div class="wrap container">
+            <div class="section-head">
+                <div>
+                    <div class="eyebrow">Hiring Process</div>
+                    <h2>How you'll join us</h2>
+                </div>
+                <p>Straightforward, fast, and designed to respect your time.</p>
+            </div>
+            <div class="process">
+                <div class="step">
+                    <div class="num">1</div>
+                    <h4>Apply</h4>
+                    <p>Send your resume and portfolio through the role's application link.</p>
+                </div>
+                <div class="step">
+                    <div class="num">2</div>
+                    <h4>Intro Call</h4>
+                    <p>A 20-minute chat about your experience and what you're looking for.</p>
+                </div>
+                <div class="step">
+                    <div class="num">3</div>
+                    <h4>Skills Round</h4>
+                    <p>A practical task or portfolio walkthrough with the hiring team.</p>
+                </div>
+                <div class="step">
+                    <div class="num">4</div>
+                    <h4>Offer</h4>
+                    <p>References, offer, and a welcome call to plan your first week.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients Testimonials Section Start -->
+	<div class="clients-testimonials" style="background-color: #fff;">
+        <div class="container">
+            <div class="row section-row align-items-center">
+                <div class="col-lg-8 col-md-12">
+                    <!-- Section Title Start -->
+                    <div class="section-title">
+                        <h3 class="wow fadeInUp">client testimonials</h3>
+                        <h2 class="text-anime-style-3">Our customers love us.</h2>
+                    </div>
+                    <!-- Section Title End -->
+                </div>
+            </div>
+
+            <div class="row">
+				<div class="col-md-12">
+					<!-- Testimonial Slider Start -->
+					<div class="testimonial-slider">
+						<div class="swiper">
+							<div class="swiper-wrapper">
+								<!-- Testimonial Slide Start -->
+								<div class="swiper-slide">
+									<div class="testimonial-item">
+										<div class="testimonial-rating">
+                                            <img src="assets/images/icon-star.svg" alt="">
+                                        </div>										
+
+                                        <div class="testimonial-content">
+                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.</p>
+                                        </div>											
+
+                                        <div class="testimonial-body">
+                                            <figure class="image-anime">
+                                                <img src="assets/images/author-1.jpg" alt="">
+                                            </figure>
+                                            <div class="testimonial-author-title">
+                                                <h2>John Doe</h2>
+                                                <p>Acme Solutions</p>
+                                            </div>										
+                                        </div>													
+									</div>
+								</div>
+								<!-- Testimonial Slide End -->
+                                
+                                <!-- Testimonial Slide Start -->
+								<div class="swiper-slide">
+									<div class="testimonial-item">
+										<div class="testimonial-rating">
+                                            <img src="assets/images/icon-star.svg" alt="">
+                                        </div>										
+
+                                        <div class="testimonial-content">
+                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.</p>
+                                        </div>											
+
+                                        <div class="testimonial-body">
+                                            <figure class="image-anime">
+                                                <img src="assets\images\author-2.jpg" alt="">
+                                            </figure>
+                                            <div class="testimonial-author-title">
+                                                <h2>Arita Banson</h2>
+                                                <p>Delta Innovation</p>
+                                            </div>										
+                                        </div>													
+									</div>
+								</div>
+								<!-- Testimonial Slide End -->
+
+                                <!-- Testimonial Slide Start -->
+								<div class="swiper-slide">
+									<div class="testimonial-item">
+										<div class="testimonial-rating">
+                                            <img src="assets/images/icon-star.svg" alt="">
+                                        </div>										
+
+                                        <div class="testimonial-content">
+                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.</p>
+                                        </div>											
+
+                                        <div class="testimonial-body">
+                                            <figure class="image-anime">
+                                                <img src="assets\images\author-3.jpg" alt="">
+                                            </figure>
+                                            <div class="testimonial-author-title">
+                                                <h2>Banson Doe</h2>
+                                                <p>Horizon Ventures</p>
+                                            </div>										
+                                        </div>													
+									</div>
+								</div>
+								<!-- Testimonial Slide End -->
+
+                                <!-- Testimonial Slide Start -->
+								<div class="swiper-slide">
+									<div class="testimonial-item">
+										<div class="testimonial-rating">
+                                            <img src="assets/images/icon-star.svg" alt="">
+                                        </div>										
+
+                                        <div class="testimonial-content">
+                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.</p>
+                                        </div>											
+
+                                        <div class="testimonial-body">
+                                            <figure class="image-anime">
+                                                <img src="assets\images\author-2.jpg" alt="">
+                                            </figure>
+                                            <div class="testimonial-author-title">
+                                                <h2>John Doe</h2>
+                                                <p>Omega Solutions</p>
+                                            </div>										
+                                        </div>													
+									</div>
+								</div>
+								<!-- Testimonial Slide End -->             
+							</div>
+							<div class="swiper-pagination"></div>
+						</div>
+					</div>
+					<!-- Testimonial Slider End -->
+				</div>
+			</div>
+        </div>
+    </div>
+    <!-- Clients Testimonials Section End -->
+
+    <!-- CTA -->
+    <section class="section" style="padding-top:0;">
+        <div class="wrap container">
+            <div class="cta">
+                <div>
+                    <h2>Don't see the right role?</h2>
+                    <p>We're always glad to hear from good people. Send your resume and tell us what you'd want to work
+                        on.</p>
+                </div>
+                <a href="#" class="btn" style="background:#fff; color:#131B2E; box-shadow:none;">Send Your Resume ↗</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Start -->
+	<footer class="main-footer">
+        <div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<!-- Mega Footer Start -->
+					<div class="mega-footer">
+						<div class="row">
+							<div class="col-lg-6 col-md-12">
+								<!-- Footer About Start -->
+								<div class="footer-about">
+									<figure>
+										<img src="assets/images/divaine-tech-logo.png" alt="" width="300px">
+									</figure>
+									<p style="max-width: 30rem;">DIVAINE TECH is a trusted digital solutions company specializing in web development, mobile app development, UI/UX design, digital marketing, SEO, and AI-powered solutions. We help businesses transform ideas into innovative, scalable, and results-driven digital experiences.</p>
+                                    <ul>
+                                        <li><a href="#">info@domainname.com</a></li>
+                                        <li><a href="#">(+0) 123 456 789</a></li>
+                                    </ul>
+								</div>
+								<!-- Footer About End -->
+							</div>
+
+							<div class="col-lg-2 col-md-4">
+								<!-- Footer Links Start -->
+								<div class="footer-links">
+									<h2>pages</h2>
+									<ul>
+										<li><a href="index.html">Home</a></li>
+										<li><a href="about.html">About Us</a></li>
+										<li><a href="services.html">Services</a></li> 
+										<li><a href="contact-us.html">Contact Us</a></li>
+                                        <li><a href="faqs.html">Faqs</a></li>
+									</ul>
+								</div>
+								<!-- Footer Links End -->
+							</div>
+
+							<div class="col-lg-2 col-md-4">
+								<!-- Footer Links Start -->
+								<div class="footer-links">
+									<h2>Socials</h2>
+									<ul>
+										<li><a href="javascript:void();"><i class="fab fa-instagram me-2"></i>Instagram</a></li>
+										<li><a href="javascript:void();"><i class="fab fa-facebook-f me-2"></i>Facebook</a></li>
+										<li><a href="javascript:void();"><i class="fab fa-twitter me-2"></i>Twitter</a></li>
+										<li><a href="javascript:void();"><i class="fab fa-linkedin-in me-2"></i>Linkedin</a></li>
+                                        <!-- <li><a href="javascript:void();"><i class="fab fa-pinterest-p me-2"></i>Pinterest</a></li> -->
+                                        <li><a href="javascript:void();"><i class="fab fa-telegram me-2"></i>Telegram</a></li>
+									</ul>
+								</div>
+								<!-- Footer Links End -->
+							</div>
+
+							<div class="col-lg-2 col-md-4">
+								<!-- Footer Links Start -->
+								<div class="footer-links">
+									<h2>services</h2>
+									<ul>
+										<li><a href="javascript:void();">Web Development</a></li>
+										<li><a href="javascript:void();">Digital Marketing</a></li>
+										<li><a href="javascript:void();">Mobile App Development</a></li> 
+										<li><a href="javascript:void();">Networking Services</a></li>
+									</ul>
+								</div>
+								<!-- Footer Links End -->
+							</div>
+						</div>
+					</div>
+					<!-- Mega Footer End -->
+
+					<!-- Copyright Footer Start -->
+					<div class="footer-copyright">
+                        <div class="row align-items-center">
+                            <div class="col-lg-6">
+                                <!-- Footer Copyright Content Start -->
+								<div class="footer-copyright-text">
+									<p>Copyright © 2026 Divaine Tech. All rights reserved.</p>
+								</div>
+								<!-- Footer Copyright Content End -->
+                            </div>
+                            <div class="col-lg-6">
+                                <!-- Footer Policy Links Start -->
+                                <div class="footer-policy-links">
+                                    <ul>
+                                        <li><a href="careers.html">Carrer</a></li>
+                                        <li><a href="cookie-policy.html">Cookie Policy</a></li>
+                                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                                        <li><a href="terms-of-service.html">Terms Of Service</a></li>
+                                        <li class="highlighted"><a href="#top">Go To Top</a></li>
+                                    </ul>
+                                </div>
+                                <!-- Footer Policy Links End -->
+                            </div>
+                        </div>						
+					</div>
+					<!-- Copyright Footer End -->
+				</div>
+			</div>
+		</div>
+    </footer>
+    <!-- Footer End -->
+
+    <script>
+    // Accordion for job listings
+    document.querySelectorAll('.job-row').forEach(row => {
+        row.addEventListener('click', () => {
+        const job = row.parentElement;
+        const wasOpen = job.classList.contains('open');
+        document.querySelectorAll('.job.open').forEach(j => j.classList.remove('open'));
+        if(!wasOpen) job.classList.add('open');
+        });
+    });
+
+    // Filters
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const jobs = document.querySelectorAll('.job');
+    const noResults = document.getElementById('noResults');
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        let visibleCount = 0;
+        jobs.forEach(job => {
+            const show = filter === 'all' || job.dataset.cat === filter;
+            job.style.display = show ? '' : 'none';
+            if(show) visibleCount++;
+            if(!show) job.classList.remove('open');
+        });
+        noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+        });
+    });
+    </script>
+    
+    <!-- Jquery Library File -->
+    <script src="assets/js/jquery-3.7.1.min.js"></script>
+    <!-- Bootstrap js file -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <!-- Validator js file -->
+    <script src="assets/js/validator.min.js"></script>
+    <!-- SlickNav js file -->
+    <script src="assets/js/jquery.slicknav.js"></script>
+    <!-- Swiper js file -->
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <!-- Counter js file -->
+    <script src="assets/js/jquery.waypoints.min.js"></script>
+
+    <script src="assets/js/jquery.counterup.min.js"></script>
+    <!-- Isotop js file -->
+    <script src="assets/js/isotope.min.js"></script>
+    <!-- Magnific js file -->
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <!-- SmoothScroll -->
+    <script src="assets/js/SmoothScroll.js"></script>
+    <!-- MagicCursor js file -->
+    <script src="assets/js/gsap.min.js"></script>
+    <script src="assets/js/magiccursor.js"></script>
+    <!-- Text Effect js file -->
+    <script src="assets/js/SplitText.js"></script>
+    <script src="assets/js/ScrollTrigger.min.js"></script>
+    <!-- Wow js file -->
+    <script src="assets/js/wow.js"></script>
+    <!-- Main Custom js file -->
+    <script src="assets/js/function.js"></script>
+</body>
+
+</html>
