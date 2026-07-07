@@ -39,10 +39,11 @@
 	--primary-color		: #15161B;
 	--secondary-color	: #F7F8FD;
 	--text-color		: #9C9FA6;
-	--accent-color		: #01affc;
+	--accent-color		: rgb(255, 101, 0);
 	--white-color		: #FFFFFF;
 	--divider-color		: #E1E4EB;
 	--error-color		: rgb(230, 87, 87);
+    --orange-color      : #FB630F;
 	--default-font		: "Manrope", sans-serif;
 }
 
@@ -226,7 +227,8 @@ body{
     left: 0;
     bottom: 0;
     z-index: -1;
-    background: var(--white-color);
+    /* background: var(--white-color); */
+    background-color: #000;
     border-radius: 30px;
     transition: 0.3s ease-in-out;
 }
@@ -236,7 +238,7 @@ body{
 }
 
 .btn-default:hover{
-	color: var(--accent-color);
+	color: var(--white-color);
 }
 
 #magic-cursor{
@@ -288,7 +290,7 @@ body{
 
 .loading{
 	border: 1px solid transparent;
-	border-color: transparent var(--accent-color) transparent var(--accent-color);
+	/* border-color: transparent var(--accent-color) transparent var(--accent-color); */
 	animation: rotate-loading 1.5s linear 0s infinite normal;
 	transform-origin: 50% 50%;
 }
@@ -416,7 +418,7 @@ header.main-header .header-sticky.active{
 }
 
 .main-menu ul li a{
-	font-size: 16px;
+	font-size: 1rem;
 	font-weight: 700;
 	padding: 15px 10px !important;
 	color: var(--primary-color);
@@ -1058,7 +1060,7 @@ header.main-header .header-sticky.active{
 }
 
 .testimonial-slider .swiper-pagination .swiper-pagination-bullet-active{
-	background-color: var(--accent-color);
+	background-color: var(--orange-color);
 }
 
 /************************************/
