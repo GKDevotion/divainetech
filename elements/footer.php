@@ -257,9 +257,7 @@
     <script src="assets/js/jquery.magnific-popup.min.js"></script>
     <!-- SmoothScroll -->
     <script src="assets/js/SmoothScroll.js"></script>
-    <!-- MagicCursor js file -->
-    <script src="assets/js/gsap.min.js"></script>
-    <script src="assets/js/magiccursor.js"></script>
+  
     <!-- Text Effect js file -->
 	<script src="assets/js/SplitText.js"></script>
     <script src="assets/js/ScrollTrigger.min.js"></script>
