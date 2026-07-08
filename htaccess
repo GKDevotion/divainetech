@@ -1,20 +1,14 @@
 RewriteEngine On
-RewriteBase /
 
-# 1. Force HTTPS
-RewriteCond %{HTTPS} off
-RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-
-# 2. Prevent routing existing files and directories
-RewriteCond %{REQUEST_FILENAME} -d [OR]
-RewriteCond %{REQUEST_FILENAME} -f
-RewriteRule ^ - [L]
-
-# 3. Remove .php extension
-RewriteCond %{REQUEST_FILENAME}.php -f
-RewriteRule ^(.*)$ $1.php [L]
-
-# 4. Route all pages/subdirectories to index.php
-RewriteCond %{REQUEST_FILENAME} !-d
+# Allow real files/folders
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^(.*)$ index.php?/$1 [L,QSA]
+RewriteCond %{REQUEST_FILENAME} !-d
+ 
+RewriteRule ^career career.php?slug=$1 [L,QSA]
+RewriteRule ^services services.php?slug=$1 [L,QSA]
+RewriteRule ^portfolio portfolio.php?slug=$1 [L,QSA]
+RewriteRule ^about about.php?slug=$1 [L,QSA]
+RewriteRule ^contact-us contact-us.php?slug=$1 [L,QSA]
+RewriteRule ^terms-of-conditions terms-of-conditions.php?slug=$1 [L,QSA]
+RewriteRule ^privacy-policy privacy-policy.php?slug=$1 [L,QSA]
+RewriteRule ^cookie-policy cookie-policy.php?slug=$1 [L,QSA]
