@@ -132,7 +132,7 @@
 					<div class="contact-form-box wow fadeInUp" data-wow-delay="0.5s">
 						<!-- Contact Form Start -->
 						<div class="contact-form">
-							<form id="contactForm" action="send-mail.php" method="POST" data-toggle="validator">
+							<form action="send-mail.php" method="POST" data-toggle="validator">
 								<div class="row">
 									<div class="form-group col-md-6 mb-4">
 										<input type="text" name="first_name" class="form-control" id="first_name" placeholder="First Name" required >
