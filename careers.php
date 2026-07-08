@@ -1,868 +1,1294 @@
 <?php
-include_once('elements/header.php');
-?>
-
-<style>
-  
-    /* SHARED */
-    .section-eyebrow {
-        font-size: 1.5rem;
-        font-weight: 600;
-        letter-spacing: 0.2em;
-        text-transform: uppercase;
-        color: var(--gold);
-        margin-bottom: 0.8rem;
-    }
-
-    .section-title { 
-        font-family: 'DM Sans', sans-serif;
-        font-size: clamp(2rem, 4vw, 3rem);
-        font-weight: 700; 
-        line-height: 1.2;
-        letter-spacing: -0.02em;
-    }
-
-    .section-lead {
-        font-size: 1.5rem;
-        font-weight: 300;
-        color: #4a4a4a;
-        line-height: 1.8;
-        max-width: 600px;
-    }
-
-    /* WHY US */
-    .why-us {
-        padding: 6rem 0;
-        background: #faf8f4;
-    }
-
-    .value-card {
-        background: #ffffff;
-        border: 1px solid #e8e0d0;
-        border-radius: 30px;
-        padding: 2rem 1.8rem;
-        height: 100%;
-        position: relative;
-        overflow: hidden;
-        transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    .value-card::before {
-        content: '';
-        position: absolute;
-        left: 0;
-        top: 0;
-        bottom: 0;
-        width: 3px;
-        background: var(--gold);
-        transform: scaleY(0);
-        transform-origin: bottom;
-        transition: transform 0.35s ease;
-    }
-
-    .value-card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 12px 36px rgba(0, 0, 0, 0.09);
-    }
-
-    .value-card:hover::before {
-        transform: scaleY(1);
-    }
-
-    .value-icon {
-        width: 48px;
-        height: 48px;
-        background: #f5ead8;
-        border-radius: 8px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 1.2rem;
-        transition: background 0.3s;
-    }
-
- 
-    .value-card h5 { 
-        font-size: 1.15rem;
-        font-weight: 600;
-        margin-bottom: 0.6rem;
-        color: #1a1a1a;
-    }
-
-    .value-card p {
-        font-size: 1rem;
-        color: #8a8a8a;
-        line-height: 1.7;
-        margin: 0;
-    }
-
-    /* OPEN ROLES */
-    .open-roles {
-        padding: 6rem 0;
-    }
-
-    .filter-tabs {
-        display: flex;
-        gap: 0.5rem;
-        flex-wrap: wrap;
-        margin-bottom: 2rem;
-    }
-
-    .filter-tab {
-        font-size: 1rem;
-        font-weight: 500;
-        letter-spacing: 0.04em;
-        padding: 0.5rem 1.2rem;
-        border: 1px solid #e8e0d0;
-        border-radius: 100px;
-        background: transparent;
-        color: #8a8a8a;
-        cursor: pointer;
-        transition: all 0.2s;
-    }
-
-    .filter-tab:hover,
-    .filter-tab.active {
-        background: var(--gold);
-        border-color: var(--gold);
-        color: #ffffff;
-    }
-
-    .job-card {
-        border: 1px solid #e8e0d0;
-        border-radius: 20px;
-        padding: 1.6rem 1.8rem;
-        background: #ffffff;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 1rem;
-        transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
-        cursor: pointer;
-        position: relative;
-        overflow: hidden;
-        text-decoration: none;
-        color: inherit;
-    }
-
-    .job-card::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 2px;
-        background: var(--gold);
-        transform: scaleX(0);
-        transform-origin: left;
-        transition: transform 0.35s ease;
-    }
-
-    .job-card:hover {
-        border-color: rgba(170, 128, 56, 0.3);
-        box-shadow: 0 6px 24px rgba(170, 128, 56, 0.1);
-        transform: translateX(4px);
-        color: inherit;
-    }
-
-    .job-card:hover::after {
-        transform: scaleX(1);
-    }
-
-    .job-dept {
-        font-size: 1rem;
-        font-weight: 600;
-        letter-spacing: 0.15em;
-        text-transform: uppercase;
-        color: var(--gold);
-        margin-bottom: 0.3rem;
-    }
-
-    .job-title { 
-        font-size: 1.5rem;
-        font-weight: 600;
-        color: #1a1a1a;
-        margin-bottom: 0.5rem;
-    }
-
-    .job-meta {
-        display: flex;
-        gap: 1rem;
-        flex-wrap: wrap;
-    }
-
-    .job-tag {
-        font-size: 1.2rem;
-        color: #8a8a8a;
-        display: flex;
-        align-items: center;
-        gap: 0.3rem;
-    }
-
-    .job-arrow {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        border: 1px solid #e8e0d0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-shrink: 0;
-        transition: background 0.2s, border-color 0.2s;
-    }
-
-    .job-card:hover .job-arrow {
-        background: var(--gold);
-        border-color: var(--gold);
-    }
-
-    .job-card:hover .job-arrow svg path {
-        stroke: #ffffff;
-    }
-
-    /* PROCESS */
-    .process-section {
-        padding: 6rem 0; 
-    }
-
-    .process-section .section-title {
-        color: #000;
-    }
-
-    .process-section .section-lead {
-        color: #626262;
-    }
-
-    .process-step {
-        position: relative;
-        padding-left: 1.5rem;
-    }
-
-    .process-step::before {
-        content: '';
-        position: absolute;
-        left: 2px;
-        top: 28px;
-        bottom: -40px;
-        width: 1px;
-        background: linear-gradient(to bottom, var(--gold), transparent);
-    }
-
-    .process-step:last-child::before {
-        display: none;
-    }
-
-    .step-num {
-        font-size: 1.5rem;
-        font-weight: 700;
-        color: var(--gold);
-        letter-spacing: 0.15em;
-        margin-bottom: 0.4rem;
-    }
-
-    .step-dot {
-        position: absolute;
-        left: -5px;
-        top: 6px;
-        width: 15px;
-        height: 15px;
-        border-radius: 50%;
-        background: var(--gold);
-        border: 1px solid #fff;
-    }
-
-    .step-title { 
-        font-size: 1.5rem;
-        font-weight: 600;
-        color: #000;
-        margin-bottom: 0.5rem;
-    }
-
-    .step-desc {
-        font-size: 1rem;
-        color: #000;
-        line-height: 1.7;
-    }
-
-    /* CULTURE */
-    .culture-grid {
-        display: grid;
-        grid-template-columns: repeat(12, 1fr);
-        gap: 12px;
-    }
-
-    .culture-cell {
-        border-radius: 6px;
-        overflow: hidden;
-    }
-
-    .culture-cell-inner {
-        width: 100%;
-        display: flex;
-        align-items: flex-end;
-        padding: 1.2rem;
-        position: relative;
-    }
-
-    .culture-cell:nth-child(1) {
-        grid-column: span 7;
-    }
-
-    .culture-cell:nth-child(2) {
-        grid-column: span 5;
-    }
-
-    .culture-cell:nth-child(3) {
-        grid-column: span 4;
-    }
-
-    .culture-cell:nth-child(4) {
-        grid-column: span 8;
-    }
-
-    .culture-label {
-        font-size: 0.75rem;
-        font-weight: 600;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        color: var(--gold);
-        background: rgba(255, 255, 255, 0.92);
-        padding: 0.3rem 0.8rem;
-        border-radius: 2px;
-    }
-
-    /* PERKS */
-    .perks-section {
-        padding: 5rem 0;
-        background: #faf8f4;
-    }
-
-    .perk-item {
-        display: flex;
-        align-items: flex-start;
-        gap: 1rem;
-        padding: 1.4rem 0;
-        border-bottom: 1px solid #e8e0d0;
-    }
-
-    .perk-item:last-child {
-        border-bottom: none;
-    }
-
-    .perk-dot {
-        width: 15px;
-        height: 15px;
-        background: var(--gold);
-        border-radius: 50%;
-        margin-top: 0.55rem;
-        flex-shrink: 0;
-    }
-
-    .perk-name {
-        font-weight: 600;
-        font-size: 1.5rem;
-        margin-bottom: 0.2rem;
-        color: #000;
-    }
-
-    .perk-desc {
-        font-size: 1.2rem;
-        color: #8a8a8a;
-        line-height: 1.6;
-        margin: 0;
-    }
-
-    /* CTA BAND */
-    .cta-band {
-        padding: 6rem 0;
-        background: var(--gold);
-        text-align: center;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .cta-band::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: repeating-linear-gradient(45deg, transparent, transparent 30px, rgba(255, 255, 255, 0.04) 30px, rgba(255, 255, 255, 0.04) 60px);
-    }
-
-    .cta-band-title {
-        font-family: 'Playfair Display', serif;
-        font-size: clamp(2rem, 5vw, 3.5rem);
-        font-weight: 700;
-        color: #ffffff;
-        letter-spacing: -0.02em;
-        margin-bottom: 1rem;
-    }
-
-    .cta-band-sub {
-        font-size: 1.5rem;
-        color: rgba(255, 255, 255, 0.75);
-        margin-bottom: 2.5rem;
-        font-weight: 300;
-    }
-
-    .btn-white {
-        background: #ffffff;
-        color: var(--gold);
-        font-weight: 700;
-        font-size: 0.9rem;
-        letter-spacing: 0.05em;
-        padding: 0.9rem 2.2rem;
-        border-radius: 4px;
-        border: none;
-        cursor: pointer;
-        transition: transform 0.2s, box-shadow 0.2s;
-        text-decoration: none;
-        display: inline-block;
-    }
-
-    .btn-white:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-        color: var(--gold);
-    }
- 
-
-    /* SCROLL REVEAL */
-    .reveal {
-        opacity: 0;
-        transform: translateY(28px);
-        transition: opacity 0.65s ease, transform 0.65s ease;
-    }
-
-    .reveal.visible {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-    .reveal-delay-1 {
-        transition-delay: 0.1s;
-    }
-
-    .reveal-delay-2 {
-        transition-delay: 0.2s;
-    }
-
-    .reveal-delay-3 {
-        transition-delay: 0.3s;
-    }
-
-    .reveal-delay-4 {
-        transition-delay: 0.4s;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-        .reveal {
-            opacity: 1;
-            transform: none;
-            transition: none;
-        } 
-    }
-
-    @media (max-width: 991px) {
-    
-        .culture-cell:nth-child(1) {
-            grid-column: span 12;
+    $seo = [
+        'title' => 'Careers at Divaine Tech | Join Our Innovative Technology Team',
+        'description' => 'Explore career opportunities at Divaine Tech and join a team building innovative web, software, and technology solutions for businesses worldwide.',
+        'keywords' => 'Divaine Tech careers, IT jobs, software developer jobs, web development careers, technology jobs, join Divaine Tech',
+        'author' => 'Divaine Tech'
+    ];
+    include_once ('elements/header.php')
+?> 
+
+    <style>
+        .eyebrow {
+            color: var(--accent-color);
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: .04em;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        .culture-cell:nth-child(2) {
-            grid-column: span 12;
+        .eyebrow::before {
+            content: "";
+            width: 16px;
+            height: 2px;
+            background: var(--accent-color);
+            display: inline-block;
+            border-radius: 2px;
         }
 
-        .culture-cell:nth-child(3) {
-            grid-column: span 6;
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--accent-color);
+            color: #fff;
+            font-weight: 600;
+            font-size: 14.5px;
+            padding: 13px 24px;
+            border-radius: var(--radius-pill);
+            border: none;
+            cursor: pointer;
+            transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+            box-shadow: 0 8px 20px -8px rgba(31, 160, 233, .55);
+            white-space: nowrap;
         }
 
-        .culture-cell:nth-child(4) {
-            grid-column: span 6;
-        }
-    }
-
-    @media (max-width: 575px) {
-      
-        .culture-cell {
-            grid-column: span 12 !important;
+        .btn:hover {
+            background: var(--accent-color);
+            transform: translateY(-2px);
+            color: #fff;
         }
 
-        .job-card {
+        .btn-ghost {
+            background: transparent;
+            color: #131B2E;
+            border: 1.5px solid E3E8F2;
+            box-shadow: none;
+        }
+
+        .btn-ghost:hover {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+            background: transparent;
+        }
+
+        .btn svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        /* ---------- HERO ---------- */
+        .hero {
+            background: #EEF2FA;
+            padding: 70px 0 90px;
+        }
+
+        .hero-inner {
+            display: grid;
+            grid-template-columns: 1.1fr .9fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: 46px;
+            color: #131B2E;
+        }
+
+        .hero h1 .accent {
+            color: var(--accent-color);
+        }
+
+        .hero p.lead {
+            color: #6B7280;
+            margin: 20px 0 28px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 36px;
+            margin-top: 36px;
+        }
+
+        .hero-stats div strong {
+            font-family: 'Poppins', sans-serif;
+            font-size: 26px;
+            display: block;
+            color: #131B2E;
+        }
+
+        .hero-stats div span {
+            font-size: 13px;
+            color: #6B7280;
+        }
+
+        .hero-art {
+            position: relative;
+        }
+
+        .hero-art .frame {
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px -25px rgba(19, 27, 46, .25);
+        }
+
+        .hero-art .frame img {
+            width: 100%;
+            height: 340px;
+            object-fit: cover;
+        }
+
+        .float-card {
+            position: absolute;
+            background: #fff;
+            border-radius: 16px;
+            padding: 14px 18px;
+            box-shadow: 0 20px 40px -20px rgba(19, 27, 46, .35);
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .float-card.c1 {
+            top: -22px;
+            left: -30px;
+        }
+
+        .float-card.c2 {
+            bottom: -24px;
+            right: -20px;
+        }
+
+        .float-card .ic {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: var(--accent-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .float-card .ic svg {
+            width: 18px;
+            height: 18px;
+            stroke: #fff;
+        }
+
+        .float-card b {
+            font-size: 14px;
+            display: block;
+        }
+
+        .float-card small {
+            color: #6B7280;
+            font-size: 12px;
+        }
+
+        /* ---------- SECTION HEADS ---------- */
+        .section {
+            padding: 90px 0;
+        }
+
+        .section-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 48px;
+            gap: 24px;
+        }
+
+        .section-head h2 {
+            font-size: 32px;
+            color: #131B2E;
+        }
+
+        .section-head p {
+            color: #6B7280;
+            max-width: 480px;
+            font-size: 1rem;
+            margin-top: 10px;
+        }
+
+        /* ---------- VALUES ---------- */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 22px;
+        }
+
+        .value-card {
+            background: #fff;
+            border: 1px solid #E3E8F2;
+            border-radius: 14px;
+            padding: 30px 26px;
+            transition: transform .2s ease, box-shadow .2s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px -22px rgba(19, 27, 46, .25);
+        }
+
+        .value-card .ic {
+            width: 46px;
+            height: 46px;
+            border-radius: 12px;
+            background: #EEF2FA;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 18px;
+        }
+
+        .value-card .ic svg {
+            width: 22px;
+            height: 22px;
+            stroke: var(--accent-color);
+        }
+
+        .value-card h4 {
+            font-size: 16.5px;
+            margin-bottom: 8px;
+        }
+
+        .value-card p {
+            font-size: 1rem;
+            color: #6B7280;
+        }
+
+        /* ---------- OPEN POSITIONS (signature interactive) ---------- */
+        .positions {
+            background: #EEF2FA;
+        }
+
+        .filters {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 9px 18px;
+            border-radius: 999px;
+            border: 1.5px solid #E3E8F2;
+            background: #fff;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #6B7280;
+            cursor: pointer;
+            transition: all .15s ease;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--accent-color);
+            border-color: var(--accent-color);
+            color: #fff;
+        }
+
+        .job-list {
+            display: flex;
             flex-direction: column;
+            gap: 14px;
+        }
+
+        .job {
+            background: #fff;
+            border: 1px solid #E3E8F2;
+            border-radius: 14px;
+            overflow: hidden;
+            transition: box-shadow .2s ease;
+        }
+
+        .job:hover {
+            box-shadow: 0 16px 34px -22px rgba(19, 27, 46, .3);
+        }
+
+        .job-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 22px 26px;
+            cursor: pointer;
+            gap: 20px;
+        }
+
+        .job-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .job-tag {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            padding: 5px 0px;
+            border-radius: 8px;
+            text-transform: uppercase;
+            letter-spacing: .03em;
+        }
+
+        .job-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 16.5px;
+        }
+
+        .job-meta {
+            display: flex;
+            gap: 16px;
+            color: #6B7280;
+            font-size: 13px;
+            margin-top: 6px;
+        }
+
+        .job-meta span {
+            display: flex;
+            align-items: center;
+            font-size: 1rem;
+            gap: 5px;
+        }
+
+        .job-meta svg {
+            width: 13px;
+            height: 13px;
+            stroke: #9AA3B2;
+        }
+
+        .job-toggle {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            border: 1.5px solid #E3E8F2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: transform .25s ease, background .2s ease, border-color .2s ease;
+        }
+
+        .job-toggle svg {
+            width: 14px;
+            height: 14px;
+            stroke: #131B2E;
+        }
+
+        .job.open .job-toggle {
+            background: var(--accent-color);
+            border-color: var(--accent-color);
+            transform: rotate(45deg);
+        }
+
+        .job.open .job-toggle svg {
+            stroke: #fff;
+        }
+
+        .job-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .35s ease;
+        }
+
+        .job.open .job-body {
+            max-height: 340px;
+        }
+
+        .job-body-inner {
+            padding: 0 26px 28px;
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 30px;
+        }
+
+        .job-body-inner p {
+            font-size: 1rem;
+            color: #6B7280;
+            margin-bottom: 14px;
+        }
+
+        .job-body-inner ul {
+            list-style: none;
+            font-size: 13.5px;
+            color: #6B7280;
+        }
+
+        .job-body-inner ul li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+
+        .job-body-inner ul li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--accent-color);
+        }
+
+        .job-apply {
+            margin-top: 10px;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 50px 0;
+            color: #6B7280;
+            font-size: 14px;
+            display: none;
+        }
+
+        /* ---------- PERKS ---------- */
+        .perks-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .perk {
+            background: #fff;
+            border: 1px solid #E3E8F2;
+            border-radius: 14px;
+            padding: 30px 26px;
+            display: flex;
+            gap: 16px;
             align-items: flex-start;
         }
-    }
-</style>
 
-<section class="top-banner-background" style="background-image: url('assets/images/banner-img.png');">
-    <div>
-        <h1 class="mb-0 text-center" >
-            Career
-        </h1>
-        <p class="text-black text-center mt-2">
-                Join our team and build a successful career with us.
-        </p>
-    </div>
-</section>
- 
-<!-- WHY US -->
-<section class="why-us" id="culture">
-    <div class="container">
-        <div class="row mb-5">
-            <div class="col-lg-6 reveal">
-                <p class="section-eyebrow">Why Aurum</p>
-                <h2 class="section-title">A place where your best work lives</h2>
-            </div>
-            <div class="col-lg-5 offset-lg-1 d-flex align-items-end reveal reveal-delay-1">
-                <p class="section-lead">We design environments for impact, not attendance. Every role is an opportunity to own something real.</p>
-            </div>
-        </div>
-        <div class="row g-4">
-            <div class="col-md-6 col-lg-3 reveal">
-                <div class="value-card">
-                    <div class="value-icon">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-                            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" stroke="#aa8038" stroke-width="2" stroke-linejoin="round" />
-                        </svg>
-                    </div>
-                    <h5>Ownership Culture</h5>
-                    <p>Every team member leads meaningful work. No cogs, no gatekeeping — just deep responsibility and trust.</p>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3 reveal reveal-delay-1">
-                <div class="value-card">
-                    <div class="value-icon">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-                            <circle cx="12" cy="12" r="9" stroke="#aa8038" stroke-width="2" />
-                            <path d="M12 7v5l3 3" stroke="#aa8038" stroke-width="2" stroke-linecap="round" />
-                        </svg>
-                    </div>
-                    <h5>Async-First Work</h5>
-                    <p>Deep focus isn't scheduled around meetings. We build tools, culture, and rituals for thoughtful async collaboration.</p>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3 reveal reveal-delay-2">
-                <div class="value-card">
-                    <div class="value-icon">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="#aa8038" stroke-width="2" />
-                            <circle cx="9" cy="7" r="4" stroke="#aa8038" stroke-width="2" />
-                            <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke="#aa8038" stroke-width="2" />
-                        </svg>
-                    </div>
-                    <h5>Diverse by Design</h5>
-                    <p>120+ team members across 18 countries. We actively recruit from underrepresented communities and measure our progress.</p>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3 reveal reveal-delay-3">
-                <div class="value-card">
-                    <div class="value-icon">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-                            <path d="M12 20V10M18 20V4M6 20v-4" stroke="#aa8038" stroke-width="2" stroke-linecap="round" />
-                        </svg>
-                    </div>
-                    <h5>Real Growth</h5>
-                    <p>Structured promotions, personal learning budgets, and a mentorship program that actually works.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
- 
-<!-- OPEN ROLES -->
-<section class="open-roles" id="roles">
+        .perk .ic {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: #EEF2FA;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-    <div class="container">
+        .perk .ic svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--accent-color);
+        }
 
-        <div class="row mb-5">
-            <div class="col-lg-6 reveal">
-                <p class="section-eyebrow">Open Positions</p>
-                <h2 class="section-title">Find your role</h2>
-            </div>
-        </div>
+        .perk h4 {
+            font-size: 15.5px;
+            margin-bottom: 6px;
+        }
 
-        <div class="filter-tabs reveal">
-            <button class="filter-tab active" onclick="filterJobs('all',this)">All Roles</button>
-            <button class="filter-tab" onclick="filterJobs('Engineering',this)">Engineering</button>
-            <button class="filter-tab" onclick="filterJobs('Design',this)">Design</button>
-            <button class="filter-tab" onclick="filterJobs('Product',this)">Product</button>
-            <button class="filter-tab" onclick="filterJobs('Marketing',this)">Marketing</button>
-            <button class="filter-tab" onclick="filterJobs('Operations',this)">Operations</button>
-        </div>
+        .perk p {
+            font-size: 1rem;
+            color: #6B7280;
+        }
 
-        <div class="d-flex flex-column gap-3" id="jobList">
+        /* ---------- LIFE GALLERY ---------- */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 150px;
+            gap: 16px;
+        }
 
-            <a class="job-card reveal" data-dept="Engineering" href="javascript:void();">
-                <div>
-                    <div class="job-dept">Engineering</div>
-                    <div class="job-title">Senior Frontend Engineer</div>
-                    <div class="job-meta">
-                        <span class="job-tag"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                                <circle cx="12" cy="10" r="3" />
-                            </svg>Remote</span>
-                        <span class="job-tag"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <rect x="2" y="7" width="20" height="14" rx="2" />
-                            </svg>Full-time</span>
-                        <span class="job-tag">$120k – $160k</span>
-                    </div>
-                </div>
-                <div class="job-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                        <path d="M5 12h14M12 5l7 7-7 7" stroke="#4a4a4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg></div>
-            </a>
+        .gallery img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 16px;
+        }
 
-            <a class="job-card reveal reveal-delay-1" data-dept="Design" href="javascript:void();">
-                <div>
-                    <div class="job-dept">Design</div>
-                    <div class="job-title">Lead Product Designer</div>
-                    <div class="job-meta">
-                        <span class="job-tag"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                                <circle cx="12" cy="10" r="3" />
-                            </svg>Hybrid · Mumbai</span>
-                        <span class="job-tag"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <rect x="2" y="7" width="20" height="14" rx="2" />
-                            </svg>Full-time</span>
-                    </div>
-                </div>
-                <div class="job-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                        <path d="M5 12h14M12 5l7 7-7 7" stroke="#4a4a4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg></div>
-            </a>
+        .gallery .g1 {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
 
-            <a class="job-card reveal reveal-delay-2" data-dept="Product" href="javascript:void();">
-                <div>
-                    <div class="job-dept">Product</div>
-                    <div class="job-title">Product Manager — Growth</div>
-                    <div class="job-meta">
-                        <span class="job-tag"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                                <circle cx="12" cy="10" r="3" />
-                            </svg>Remote</span>
-                        <span class="job-tag"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <rect x="2" y="7" width="20" height="14" rx="2" />
-                            </svg>Full-time</span>
-                    </div>
-                </div>
-                <div class="job-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                        <path d="M5 12h14M12 5l7 7-7 7" stroke="#4a4a4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg></div>
-            </a>
+        .gallery .g4 {
+            grid-column: span 2;
+        }
 
-            <a class="job-card reveal reveal-delay-3" data-dept="Engineering" href="javascript:void();">
-                <div>
-                    <div class="job-dept">Engineering</div>
-                    <div class="job-title">Backend Engineer — Platform</div>
-                    <div class="job-meta">
-                        <span class="job-tag"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                                <circle cx="12" cy="10" r="3" />
-                            </svg>Remote</span>
-                        <span class="job-tag">$100k – $140k</span>
-                    </div>
-                </div>
-                <div class="job-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                        <path d="M5 12h14M12 5l7 7-7 7" stroke="#4a4a4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg></div>
-            </a>
+        /* ---------- PROCESS ---------- */
+        .process {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+            position: relative;
+        }
 
-            <a class="job-card reveal reveal-delay-4" data-dept="Marketing" href="javascript:void();">
-                <div>
-                    <div class="job-dept">Marketing</div>
-                    <div class="job-title">Content Strategist</div>
-                    <div class="job-meta">
-                        <span class="job-tag"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                                <circle cx="12" cy="10" r="3" />
-                            </svg>Remote</span>
-                        <span class="job-tag">Contract</span>
-                    </div>
-                </div>
-                <div class="job-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                        <path d="M5 12h14M12 5l7 7-7 7" stroke="#4a4a4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg></div>
-            </a>
+        .process::before {
+            content: "";
+            position: absolute;
+            top: 23px;
+            left: 12%;
+            right: 12%;
+            height: 2px;
+            background: repeating-linear-gradient(90deg, #E3E8F2 0 8px, transparent 8px 16px);
+        }
 
-            <a class="job-card reveal" data-dept="Operations" href="javascript:void();">
-                <div>
-                    <div class="job-dept">Operations</div>
-                    <div class="job-title">People &amp; Culture Lead</div>
-                    <div class="job-meta">
-                        <span class="job-tag"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                                <circle cx="12" cy="10" r="3" />
-                            </svg>Hybrid · Bengaluru</span>
-                        <span class="job-tag">Full-time</span>
-                    </div>
-                </div>
-                <div class="job-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                        <path d="M5 12h14M12 5l7 7-7 7" stroke="#4a4a4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg></div>
-            </a>
+        .step {
+            position: relative;
+            text-align: center;
+            padding: 0 14px;
+        }
 
-        </div>
+        .step .num {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background: #131B2E;
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            position: relative;
+            z-index: 2;
+        }
 
-    </div>
-    
-</section>
+        .step:nth-child(2) .num,
+        .step:nth-child(4) .num {
+            background: var(--accent-color);
+        }
 
-<!-- PROCESS -->
-<section class="process-section">
-    <div class="container">
-        <div class="row align-items-start">
-            <div class="col-lg-4 mb-5 mb-lg-0 reveal">
-                <p class="section-eyebrow">How We Hire</p>
-                <h2 class="section-title">A process built on respect</h2>
-                <p class="section-lead mt-3">No trick questions. No ghost stages. We value your time and tell you exactly what to expect.</p>
-            </div>
-            <div class="col-lg-7 offset-lg-1">
-                <div class="d-flex flex-column gap-4 ps-3">
-                    <div class="process-step reveal reveal-delay-1">
-                        <div class="step-dot"></div>
-                        <div class="step-num">01</div>
-                        <div class="step-title">Apply Online</div>
-                        <p class="step-desc">A short, focused application — no cover letter needed unless you want to share one. We review every submission within 5 business days.</p>
-                    </div>
-                    <div class="process-step reveal reveal-delay-2">
-                        <div class="step-dot"></div>
-                        <div class="step-num">02</div>
-                        <div class="step-title">Intro Call</div>
-                        <p class="step-desc">A 30-minute conversation with someone from the hiring team. We share context about the role; you share context about yourself.</p>
-                    </div>
-                    <div class="process-step reveal reveal-delay-3">
-                        <div class="step-dot"></div>
-                        <div class="step-num">03</div>
-                        <div class="step-title">Skills Assessment</div>
-                        <p class="step-desc">A practical exercise relevant to the role — paid, bounded to 3 hours, and designed to reflect real work, not trivia.</p>
-                    </div>
-                    <div class="process-step reveal reveal-delay-4">
-                        <div class="step-dot"></div>
-                        <div class="step-num">04</div>
-                        <div class="step-title">Team Interviews</div>
-                        <p class="step-desc">Two conversations with future teammates and a hiring manager. You'll meet the people you'd actually work with.</p>
-                    </div>
-                    <div class="process-step reveal">
-                        <div class="step-dot"></div>
-                        <div class="step-num">05</div>
-                        <div class="step-title">Offer &amp; Onboarding</div>
-                        <p class="step-desc">Clear offer, transparent comp structure, and a structured first-90-days plan. You're set up to succeed from day one.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+        .step h4 {
+            font-size: 15.5px;
+            margin-bottom: 8px;
+        }
 
-<!-- PERKS -->
-<section class="perks-section">
-    <div class="container">
-        <div class="row mb-5">
-            <div class="col reveal">
-                <p class="section-eyebrow">Benefits &amp; Perks</p>
-                <h2 class="section-title">We take care of our people</h2>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="perk-item reveal">
-                    <div class="perk-dot"></div>
-                    <div>
-                        <div class="perk-name">Competitive Salary + Equity</div>
-                        <p class="perk-desc">Top-of-market cash comp and meaningful equity so you share in what we build together.</p>
-                    </div>
-                </div>
-                <div class="perk-item reveal reveal-delay-1">
-                    <div class="perk-dot"></div>
-                    <div>
-                        <div class="perk-name">&#8377;2.5L Annual Learning Budget</div>
-                        <p class="perk-desc">Courses, conferences, books, certifications — spend it how your growth demands.</p>
-                    </div>
-                </div>
-                <div class="perk-item reveal reveal-delay-2">
-                    <div class="perk-dot"></div>
-                    <div>
-                        <div class="perk-name">Unlimited PTO (that people actually use)</div>
-                        <p class="perk-desc">No accrual politics. We track culture, not hours. Leadership models this from the top.</p>
-                    </div>
-                </div>
-                <div class="perk-item reveal reveal-delay-3">
-                    <div class="perk-dot"></div>
-                    <div>
-                        <div class="perk-name">Home Office Stipend</div>
-                        <p class="perk-desc">&#8377;1.2L setup allowance and a &#8377;6k/month internet subsidy for remote team members.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="perk-item reveal">
-                    <div class="perk-dot"></div>
-                    <div>
-                        <div class="perk-name">Comprehensive Health Coverage</div>
-                        <p class="perk-desc">Medical, dental, and vision for you and your dependents — 100% employer-paid premiums.</p>
-                    </div>
-                </div>
-                <div class="perk-item reveal reveal-delay-1">
-                    <div class="perk-dot"></div>
-                    <div>
-                        <div class="perk-name">Parental Leave</div>
-                        <p class="perk-desc">16 weeks fully paid for all parents — birthing, non-birthing, and adoptive.</p>
-                    </div>
-                </div>
-                <div class="perk-item reveal reveal-delay-2">
-                    <div class="perk-dot"></div>
-                    <div>
-                        <div class="perk-name">Annual Team Retreats</div>
-                        <p class="perk-desc">Twice a year, the whole team comes together somewhere memorable. Past locations: Lisbon, Bali, Tbilisi.</p>
-                    </div>
-                </div>
-                <div class="perk-item reveal reveal-delay-3">
-                    <div class="perk-dot"></div>
-                    <div>
-                        <div class="perk-name">Mental Health Support</div>
-                        <p class="perk-desc">Access to therapy and counseling through our EAP, plus regular mental wellness days built into the calendar.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+        .step p {
+            font-size: 1rem;
+            color: #6B7280;
+        }
 
-<!-- CTA BAND -->
-<section class="cta-band">
-    <div class="container position-relative">
-        <h2 class="cta-band-title reveal">Don't see your role yet?</h2>
-        <p class="cta-band-sub reveal reveal-delay-1">We're always looking for exceptional people. Send us a note and tell us what you'd build here.</p>
-        <a href="contact.php" class="btn-white reveal reveal-delay-2">Get in Touch</a>
-    </div>
-</section>
- 
- 
-<script>
- 
-   const reveals = document.querySelectorAll('.reveal'); 
-    const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach(e => {
-            if (e.isIntersecting) {
-                e.target.classList.add('visible');
-                revealObserver.unobserve(e.target);
+        /* ---------- TESTIMONIALS ---------- */
+        .quotes {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .quote-card {
+            background: #fff;
+            border: 1px solid #E3E8F2;
+            border-radius: 14px;
+            padding: 28px;
+        }
+
+        .stars {
+            color: #F5A623;
+            font-size: 13px;
+            letter-spacing: 2px;
+            margin-bottom: 14px;
+        }
+
+        .quote-card p.txt {
+            font-size: 1rem;
+            color: #6B7280;
+            margin-bottom: 20px;
+        }
+
+        .who {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .who img {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .who b {
+            font-size: 14px;
+            display: block;
+        }
+
+        .who span {
+            font-size: 1rem;
+            color: #6B7280;
+        }
+
+        /* ---------- CTA ---------- */
+        .cta {
+            background: #131B2E;
+            border-radius: 28px;
+            padding: 56px 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            color: #fff;
+        }
+
+        .cta h2 {
+            color: #fff;
+            font-size: 28px;
+            max-width: 480px;
+        }
+
+        .cta p {
+            color: #B7C0D1;
+            margin-top: 10px;
+            font-size: 1rem;
+            max-width: 440px;
+        }
+
+
+        @media(max-width:860px) {
+
+            .values-grid,
+            .perks-grid,
+            .quotes {
+                grid-template-columns: repeat(2, 1fr);
             }
-        });
-    }, {
-        threshold: 0.08
-    }); 
-    reveals.forEach(el => revealObserver.observe(el));
 
-    function filterJobs(dept, btn) {
-        document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
-        btn.classList.add('active');
-        document.querySelectorAll('.job-card').forEach(card => {
-            card.style.display = (dept === 'all' || card.dataset.dept === dept) ? 'flex' : 'none';
-        });
-    }
-</script>
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .process {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+
+            .process::before {
+                display: none;
+            }
+
+            .job-body-inner {
+                grid-template-columns: 1fr;
+            }
+
+            .cta {
+                flex-direction: column;
+                text-align: center;
+                padding: 40px 28px;
+            }
+        }
+    </style>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="wrap hero-inner container">
+            <div>
+                <div class="eyebrow">Careers</div>
+                <h1>Build Your Career<br>While You Build <span class="accent">Great Work</span></h1>
+                <p class="lead">We're a small team of designers, developers and strategists who ship real websites and
+                    campaigns for real businesses. Come do the best work of your career alongside people who care about
+                    the craft.</p>
+                <a href="#positions" class="btn">View Open Roles ↗</a>
+                <div class="hero-stats">
+                    <div><strong>18</strong><span>Team Members</span></div>
+                    <div><strong>4.8/5</strong><span>Glassdoor Rating</span></div>
+                    <div><strong>100%</strong><span>Remote-Friendly</span></div>
+                </div>
+            </div>
+            <div class="hero-art">
+                <div class="frame">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=900&q=80"
+                        alt="Team collaborating">
+                </div>
+                <div class="float-card c1">
+                    <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                            <path d="M20 6L9 17l-5-5" />
+                        </svg></div>
+                    <div><b>Fast Hiring</b><small>2-week process</small></div>
+                </div>
+                <div class="float-card c2">
+                    <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                            <path d="M12 2v20M2 12h20" />
+                        </svg></div>
+                    <div><b>6 Open Roles</b><small>Apply today</small></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY WORK WITH US -->
+    <section class="section container">
+        <div class="wrap">
+            <div class="section-head">
+                <div>
+                    <div class="eyebrow">Why Divaine Tech</div>
+                    <h2>A place built for people who love the work</h2>
+                </div>
+                <p>No bureaucracy, no busywork — just meaningful projects, direct ownership, and a team that has your
+                    back.</p>
+            </div>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                            <path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z" />
+                        </svg></div>
+                    <h4>Real Ownership</h4>
+                    <p>You lead projects end-to-end, not just tickets from a backlog.</p>
+                </div>
+                <div class="value-card">
+                    <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                            <circle cx="12" cy="8" r="4" />
+                            <path d="M4 21c0-4 4-6 8-6s8 2 8 6" />
+                        </svg></div>
+                    <h4>Small, Senior Team</h4>
+                    <p>Work closely with experienced people, not layers of management.</p>
+                </div>
+                <div class="value-card">
+                    <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                            <path d="M12 2a10 10 0 100 20 10 10 0 000-20z" />
+                            <path d="M12 6v6l4 2" />
+                        </svg></div>
+                    <h4>Flexible Hours</h4>
+                    <p>Work when you're sharpest — async-first, outcomes over hours.</p>
+                </div>
+                <div class="value-card">
+                    <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                            <path d="M3 3v18h18M7 15l4-4 3 3 5-6" />
+                        </svg></div>
+                    <h4>Room to Grow</h4>
+                    <p>Clear paths and a real budget for courses, tools and conferences.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OPEN POSITIONS -->
+    <section class="section positions" id="positions">
+        <div class="wrap container">
+            <div class="section-head">
+                <div>
+                    <div class="eyebrow">Open Positions</div>
+                    <h2>Find your next role</h2>
+                </div>
+                <p>Every role works directly with clients — this is a place to make your portfolio, not just your
+                    paycheck.</p>
+            </div>
+
+            <div class="filters" id="filters">
+                <button class="filter-btn active" data-filter="all">All Roles</button>
+                <button class="filter-btn" data-filter="design">Design</button>
+                <button class="filter-btn" data-filter="engineering">Engineering</button>
+                <button class="filter-btn" data-filter="marketing">Marketing</button>
+                <button class="filter-btn" data-filter="ops">Operations</button>
+            </div>
+
+            <div class="job-list" id="jobList">
+
+                <div class="job" data-cat="design">
+                    <div class="job-row">
+                        <div class="job-left">
+                            <div>
+                                <div class="job-tag">Design</div>
+                                <div class="job-title">Senior Product Designer</div>
+                                <div class="job-meta">
+                                    <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                            <path d="M12 21s-7-6-7-11a7 7 0 0114 0c0 5-7 11-7 11z" />
+                                            <circle cx="12" cy="10" r="2.5" />
+                                        </svg>Remote / Ahmedabad</span>
+                                    <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                            <circle cx="12" cy="12" r="9" />
+                                            <path d="M12 7v5l3 3" />
+                                        </svg>Full-time</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="job-toggle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                <path d="M12 5v14M5 12h14" />
+                            </svg></div>
+                    </div>
+                    <div class="job-body">
+                        <div class="job-body-inner">
+                            <div>
+                                <p>Own the visual design of client websites and product experiences from wireframe to
+                                    hand-off, working directly with founders and marketing teams.</p>
+                                <a href="#" class="btn job-apply">Apply Now ↗</a>
+                            </div>
+                            <ul>
+                                <li>4+ years in web/product design</li>
+                                <li>Strong portfolio of shipped work</li>
+                                <li>Comfortable presenting to clients</li>
+                                <li>Figma fluency required</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="job" data-cat="engineering">
+                    <div class="job-row">
+                        <div class="job-left">
+                            <div>
+                                <div class="job-tag">Engineering</div>
+                                <div class="job-title">Front-End Developer (React)</div>
+                                <div class="job-meta">
+                                    <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                            <path d="M12 21s-7-6-7-11a7 7 0 0114 0c0 5-7 11-7 11z" />
+                                            <circle cx="12" cy="10" r="2.5" />
+                                        </svg>Remote</span>
+                                    <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                            <circle cx="12" cy="12" r="9" />
+                                            <path d="M12 7v5l3 3" />
+                                        </svg>Full-time</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="job-toggle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                <path d="M12 5v14M5 12h14" />
+                            </svg></div>
+                    </div>
+                    <div class="job-body">
+                        <div class="job-body-inner">
+                            <div>
+                                <p>Build fast, pixel-accurate marketing sites and web apps for our client roster using
+                                    React and modern tooling.</p>
+                                <a href="#" class="btn job-apply">Apply Now ↗</a>
+                            </div>
+                            <ul>
+                                <li>2+ years with React / Next.js</li>
+                                <li>Solid CSS and responsive layout skills</li>
+                                <li>Experience with CMS integrations a plus</li>
+                                <li>Git-based workflow</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="job" data-cat="engineering">
+                    <div class="job-row">
+                        <div class="job-left">
+                            <div>
+                                <div class="job-tag">Engineering</div>
+                                <div class="job-title">Mobile App Developer (Flutter)</div>
+                                <div class="job-meta">
+                                    <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                            <path d="M12 21s-7-6-7-11a7 7 0 0114 0c0 5-7 11-7 11z" />
+                                            <circle cx="12" cy="10" r="2.5" />
+                                        </svg>Ahmedabad</span>
+                                    <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                            <circle cx="12" cy="12" r="9" />
+                                            <path d="M12 7v5l3 3" />
+                                        </svg>Full-time</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="job-toggle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                <path d="M12 5v14M5 12h14" />
+                            </svg></div>
+                    </div>
+                    <div class="job-body">
+                        <div class="job-body-inner">
+                            <div>
+                                <p>Ship cross-platform mobile apps for clients across e-commerce, health and logistics,
+                                    from architecture to app-store release.</p>
+                                <a href="#" class="btn job-apply">Apply Now ↗</a>
+                            </div>
+                            <ul>
+                                <li>2+ years shipping Flutter or React Native apps</li>
+                                <li>Comfortable with REST/GraphQL integrations</li>
+                                <li>Experience publishing to App Store / Play Store</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="job" data-cat="marketing">
+                    <div class="job-row">
+                        <div class="job-left">
+                            <div>
+                                <div class="job-tag">Marketing</div>
+                                <div class="job-title">Digital Marketing Strategist</div>
+                                <div class="job-meta">
+                                    <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                            <path d="M12 21s-7-6-7-11a7 7 0 0114 0c0 5-7 11-7 11z" />
+                                            <circle cx="12" cy="10" r="2.5" />
+                                        </svg>Remote</span>
+                                    <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                            <circle cx="12" cy="12" r="9" />
+                                            <path d="M12 7v5l3 3" />
+                                        </svg>Full-time</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="job-toggle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                <path d="M12 5v14M5 12h14" />
+                            </svg></div>
+                    </div>
+                    <div class="job-body">
+                        <div class="job-body-inner">
+                            <div>
+                                <p>Plan and run SEO and paid campaigns for our clients, turning traffic into qualified
+                                    leads and reporting on what actually moves revenue.</p>
+                                <a href="#" class="btn job-apply">Apply Now ↗</a>
+                            </div>
+                            <ul>
+                                <li>3+ years in SEO/SEM</li>
+                                <li>Hands-on with Google Ads & Analytics</li>
+                                <li>Clear, client-ready reporting skills</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="job" data-cat="marketing">
+                    <div class="job-row">
+                        <div class="job-left">
+                            <div>
+                                <div class="job-tag">Marketing</div>
+                                <div class="job-title">Content & Social Media Executive</div>
+                                <div class="job-meta">
+                                    <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                            <path d="M12 21s-7-6-7-11a7 7 0 0114 0c0 5-7 11-7 11z" />
+                                            <circle cx="12" cy="10" r="2.5" />
+                                        </svg>Remote</span>
+                                    <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                            <circle cx="12" cy="12" r="9" />
+                                            <path d="M12 7v5l3 3" />
+                                        </svg>Part-time</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="job-toggle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                <path d="M12 5v14M5 12h14" />
+                            </svg></div>
+                    </div>
+                    <div class="job-body">
+                        <div class="job-body-inner">
+                            <div>
+                                <p>Write and schedule content across blog and social for both Divaine Tech and client
+                                    accounts, keeping every voice on-brand.</p>
+                                <a href="#" class="btn job-apply">Apply Now ↗</a>
+                            </div>
+                            <ul>
+                                <li>1+ years writing for brands</li>
+                                <li>Comfortable with content calendars</li>
+                                <li>Basic design/Canva skills a plus</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="job" data-cat="ops">
+                    <div class="job-row">
+                        <div class="job-left">
+                            <div>
+                                <div class="job-tag">Operations</div>
+                                <div class="job-title">Project Coordinator</div>
+                                <div class="job-meta">
+                                    <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                            <path d="M12 21s-7-6-7-11a7 7 0 0114 0c0 5-7 11-7 11z" />
+                                            <circle cx="12" cy="10" r="2.5" />
+                                        </svg>Ahmedabad</span>
+                                    <span><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                            <circle cx="12" cy="12" r="9" />
+                                            <path d="M12 7v5l3 3" />
+                                        </svg>Full-time</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="job-toggle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                <path d="M12 5v14M5 12h14" />
+                            </svg></div>
+                    </div>
+                    <div class="job-body">
+                        <div class="job-body-inner">
+                            <div>
+                                <p>Keep client projects on schedule and on scope — coordinating designers, developers
+                                    and clients through every milestone.</p>
+                                <a href="#" class="btn job-apply">Apply Now ↗</a>
+                            </div>
+                            <ul>
+                                <li>1-2 years in project coordination</li>
+                                <li>Excellent written communication</li>
+                                <li>Familiarity with tools like Asana/ClickUp</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <p class="no-results" id="noResults">No open roles in this category right now — check back soon or send us
+                your resume anyway.</p>
+        </div>
+    </section>
+
+    <!-- PERKS -->
+    <section class="section">
+        <div class="wrap container">
+            <div class="section-head">
+                <div>
+                    <div class="eyebrow">Perks & Benefits</div>
+                    <h2>What you get, beyond the paycheck</h2>
+                </div>
+            </div>
+            <div class="perks-grid">
+                <div class="perk">
+                    <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                            <path d="M4 4h16v16H4z" opacity="0" />
+                            <path
+                                d="M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V6a2 2 0 012-2z" />
+                        </svg></div>
+                    <div>
+                        <h4>Paid Time Off</h4>
+                        <p>Generous leave plus your birthday off, always.</p>
+                    </div>
+                </div>
+                <div class="perk">
+                    <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                            <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+                        </svg></div>
+                    <div>
+                        <h4>Health Coverage</h4>
+                        <p>Medical insurance for you and your family.</p>
+                    </div>
+                </div>
+                <div class="perk">
+                    <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                            <path d="M12 2l2.4 6.6L21 11l-6.6 2.4L12 20l-2.4-6.6L3 11l6.6-2.4z" />
+                        </svg></div>
+                    <div>
+                        <h4>Learning Budget</h4>
+                        <p>Yearly stipend for courses, books and conferences.</p>
+                    </div>
+                </div>
+                <div class="perk">
+                    <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                            <rect x="3" y="4" width="18" height="16" rx="2" />
+                            <path d="M3 9h18M8 2v4M16 2v4" />
+                        </svg></div>
+                    <div>
+                        <h4>Work From Anywhere</h4>
+                        <p>Remote-first setup, with an office if you want one.</p>
+                    </div>
+                </div>
+                <div class="perk">
+                    <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                            <circle cx="12" cy="12" r="9" />
+                            <path d="M9 12l2 2 4-4" />
+                        </svg></div>
+                    <div>
+                        <h4>Performance Bonuses</h4>
+                        <p>Rewarded when a project — and the client — win.</p>
+                    </div>
+                </div>
+                <div class="perk">
+                    <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
+                            <circle cx="12" cy="7" r="4" />
+                        </svg></div>
+                    <div>
+                        <h4>Team Retreats</h4>
+                        <p>An annual offsite to reset, plan, and celebrate wins.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LIFE AT DIVAINE -->
+    <section class="section" style="padding-top:0;">
+        <div class="wrap container">
+            <div class="section-head">
+                <div>
+                    <div class="eyebrow">Life At Divaine</div>
+                    <h2>A day in the studio</h2>
+                </div>
+                <p>Working sessions, client calls, and the odd celebratory coffee run.</p>
+            </div>
+            <div class="gallery">
+                <img class="g1"
+                    src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=80"
+                    alt="Team working">
+                <img class="g2"
+                    src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=500&q=80"
+                    alt="Meeting">
+                <img class="g3"
+                    src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=500&q=80"
+                    alt="Desk setup">
+                <img class="g4"
+                    src="https://images.unsplash.com/photo-1522071901873-411886a10004?auto=format&fit=crop&w=800&q=80"
+                    alt="Team discussion">
+            </div>
+        </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="section" style="background:#EEF2FA;">
+        <div class="wrap container">
+            <div class="section-head">
+                <div>
+                    <div class="eyebrow">Hiring Process</div>
+                    <h2>How you'll join us</h2>
+                </div>
+                <p>Straightforward, fast, and designed to respect your time.</p>
+            </div>
+            <div class="process">
+                <div class="step">
+                    <div class="num">1</div>
+                    <h4>Apply</h4>
+                    <p>Send your resume and portfolio through the role's application link.</p>
+                </div>
+                <div class="step">
+                    <div class="num">2</div>
+                    <h4>Intro Call</h4>
+                    <p>A 20-minute chat about your experience and what you're looking for.</p>
+                </div>
+                <div class="step">
+                    <div class="num">3</div>
+                    <h4>Skills Round</h4>
+                    <p>A practical task or portfolio walkthrough with the hiring team.</p>
+                </div>
+                <div class="step">
+                    <div class="num">4</div>
+                    <h4>Offer</h4>
+                    <p>References, offer, and a welcome call to plan your first week.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients Testimonials Section Start -->
+	<div class="clients-testimonials" style="background-color: #fff;">
+        <div class="container">
+            <div class="row section-row align-items-center">
+                <div class="col-lg-8 col-md-12">
+                    <!-- Section Title Start -->
+                    <div class="section-title">
+                        <h3 class="wow fadeInUp">client testimonials</h3>
+                        <h2 class="text-anime-style-3">Our customers love us.</h2>
+                    </div>
+                    <!-- Section Title End -->
+                </div>
+            </div>
+
+            <div class="row">
+				<div class="col-md-12">
+					<!-- Testimonial Slider Start -->
+					<div class="testimonial-slider">
+						<div class="swiper">
+							<div class="swiper-wrapper">
+								<!-- Testimonial Slide Start -->
+								<div class="swiper-slide">
+									<div class="testimonial-item">
+										<div class="testimonial-rating">
+                                            <img src="assets/images/icon-star.svg" alt="">
+                                        </div>										
+
+                                        <div class="testimonial-content">
+                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.</p>
+                                        </div>											
+
+                                        <div class="testimonial-body">
+                                            <figure class="image-anime">
+                                                <img src="assets/images/author-1.jpg" alt="">
+                                            </figure>
+                                            <div class="testimonial-author-title">
+                                                <h2>John Doe</h2>
+                                                <p>Acme Solutions</p>
+                                            </div>										
+                                        </div>													
+									</div>
+								</div>
+								<!-- Testimonial Slide End -->
+                                
+                                <!-- Testimonial Slide Start -->
+								<div class="swiper-slide">
+									<div class="testimonial-item">
+										<div class="testimonial-rating">
+                                            <img src="assets/images/icon-star.svg" alt="">
+                                        </div>										
+
+                                        <div class="testimonial-content">
+                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.</p>
+                                        </div>											
+
+                                        <div class="testimonial-body">
+                                            <figure class="image-anime">
+                                                <img src="assets\images\author-2.jpg" alt="">
+                                            </figure>
+                                            <div class="testimonial-author-title">
+                                                <h2>Arita Banson</h2>
+                                                <p>Delta Innovation</p>
+                                            </div>										
+                                        </div>													
+									</div>
+								</div>
+								<!-- Testimonial Slide End -->
+
+                                <!-- Testimonial Slide Start -->
+								<div class="swiper-slide">
+									<div class="testimonial-item">
+										<div class="testimonial-rating">
+                                            <img src="assets/images/icon-star.svg" alt="">
+                                        </div>										
+
+                                        <div class="testimonial-content">
+                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.</p>
+                                        </div>											
+
+                                        <div class="testimonial-body">
+                                            <figure class="image-anime">
+                                                <img src="assets\images\author-3.jpg" alt="">
+                                            </figure>
+                                            <div class="testimonial-author-title">
+                                                <h2>Banson Doe</h2>
+                                                <p>Horizon Ventures</p>
+                                            </div>										
+                                        </div>													
+									</div>
+								</div>
+								<!-- Testimonial Slide End -->
+
+                                <!-- Testimonial Slide Start -->
+								<div class="swiper-slide">
+									<div class="testimonial-item">
+										<div class="testimonial-rating">
+                                            <img src="assets/images/icon-star.svg" alt="">
+                                        </div>										
+
+                                        <div class="testimonial-content">
+                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.</p>
+                                        </div>											
+
+                                        <div class="testimonial-body">
+                                            <figure class="image-anime">
+                                                <img src="assets\images\author-2.jpg" alt="">
+                                            </figure>
+                                            <div class="testimonial-author-title">
+                                                <h2>John Doe</h2>
+                                                <p>Omega Solutions</p>
+                                            </div>										
+                                        </div>													
+									</div>
+								</div>
+								<!-- Testimonial Slide End -->             
+							</div>
+							<div class="swiper-pagination"></div>
+						</div>
+					</div>
+					<!-- Testimonial Slider End -->
+				</div>
+			</div>
+        </div>
+    </div>
+    <!-- Clients Testimonials Section End -->
+
+    <!-- CTA -->
+    <section class="section" style="padding-top:0;">
+        <div class="wrap container">
+            <div class="cta">
+                <div>
+                    <h2>Don't see the right role?</h2>
+                    <p>We're always glad to hear from good people. Send your resume and tell us what you'd want to work
+                        on.</p>
+                </div>
+                <a href="#" class="btn" style="background:#fff; color:#131B2E; box-shadow:none;">Send Your Resume ↗</a>
+            </div>
+        </div>
+    </section>
 
 <?php
-// include_once('elements/faqs.php');
-include_once('elements/footer.php');
+    include_once ('elements/footer.php')
 ?>

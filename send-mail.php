@@ -2,18 +2,26 @@
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    $name    = htmlspecialchars($_POST['fullName']);
-    $phone   = htmlspecialchars($_POST['phone']);
-    $email   = htmlspecialchars($_POST['email']);
-    $subject = htmlspecialchars($_POST['subject']);
-    $message = htmlspecialchars($_POST['message']);
+    $first_name = htmlspecialchars($_POST['first_name'] ?? '');
+    $last_name  = htmlspecialchars($_POST['last_name'] ?? '');
+    $phone      = htmlspecialchars($_POST['phone'] ?? '');
+    $email      = htmlspecialchars($_POST['email'] ?? '');
+    $subject    = htmlspecialchars($_POST['subject'] ?? '');
+    $message    = htmlspecialchars($_POST['msg'] ?? '');
 
+    $name = $first_name . " " . $last_name;
+
+    // Receiver Email
     $to = "hardikprajapati8104@gmail.com";
 
-    $mail_subject = "New Customer Inquiry Received - " . $name;
+    // Email Subject
+    $mail_subject = "New Contact Inquiry Received - " . $name;
 
+    // Email Body
     $mail_body = "
-    Full Name: $name
+    New Customer Inquiry
+
+    Name: $name
 
     Phone: $phone
 
@@ -25,20 +33,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $message
     ";
 
+    // Email Headers
     $headers  = "From: noreply@" . $_SERVER['SERVER_NAME'] . "\r\n";
-    $headers .= "Reply-To: $email\r\n";
+    $headers .= "Reply-To: " . $email . "\r\n";
+    $headers .= "MIME-Version: 1.0\r\n";
     $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 
+
+    // Send Mail
     if (mail($to, $mail_subject, $mail_body, $headers)) {
+
         echo "<script>
                 alert('Message sent successfully!');
                 window.location.href='contact.php';
               </script>";
+
     } else {
+
         echo "<script>
                 alert('Failed to send message.');
                 window.history.back();
               </script>";
     }
+
+} else {
+
+    header("Location: contact.php");
+    exit();
+
 }
+
 ?>
