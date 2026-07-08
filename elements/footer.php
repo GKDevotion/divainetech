@@ -82,12 +82,19 @@
                                 <div class="row footer-newsletter-row">
                                     <div class="col-lg-12">
                                         <div class="footer-newsletter">
-                                            <h2>Subscribe to Our Newsletter</h2>
-                                            <p>Get the latest updates on our services, offers, and tech insights delivered straight to your inbox.</p>
-                                            <form class="newsletter-form" onsubmit="return false;">
-                                                <input type="email" placeholder="Enter your email address" required>
+
+                                            <h2>Subscribe to Our Newsletter</h2> 
+                                            <p>
+                                                Get the latest updates on our services, offers, and tech insights delivered straight to your inbox.
+                                            </p> 
+                                            <form class="newsletter-form" action="newsletter.php" method="POST">
+
+                                                <input type="email" name="email" placeholder="Enter your email address" required>
+
                                                 <button type="submit">Subscribe</button>
+
                                             </form>
+
                                         </div>
                                     </div>
                                 </div>
