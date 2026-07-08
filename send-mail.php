@@ -11,13 +11,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $name = $first_name . " " . $last_name;
 
-    // Receiver Email
     $to = "hardikprajapati8104@gmail.com";
 
-    // Email Subject
     $mail_subject = "New Contact Inquiry Received - " . $name;
 
-    // Email Body
     $mail_body = "
     New Customer Inquiry
 
@@ -33,32 +30,67 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $message
     ";
 
-    // Email Headers
     $headers  = "From: noreply@" . $_SERVER['SERVER_NAME'] . "\r\n";
     $headers .= "Reply-To: " . $email . "\r\n";
     $headers .= "MIME-Version: 1.0\r\n";
     $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 
 
-    // Send Mail
     if (mail($to, $mail_subject, $mail_body, $headers)) {
 
-        echo "<script>
-                alert('Message sent successfully!');
+        echo "
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
+        </head>
+        <body>
+
+        <script>
+            Swal.fire({
+                title: 'Success!',
+                text: 'Your message has been sent successfully.',
+                icon: 'success',
+                confirmButtonColor: 'rgb(255, 101, 0)'
+            }).then(() => {
                 window.location.href='contact.php';
-              </script>";
+            });
+        </script>
+
+        </body>
+        </html>
+        ";
 
     } else {
 
-        echo "<script>
-                alert('Failed to send message.');
+        echo "
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
+        </head>
+        <body>
+
+        <script>
+            Swal.fire({
+                title: 'Error!',
+                text: 'Failed to send message. Please try again.',
+                icon: 'error',
+                confirmButtonColor: 'rgb(255, 101, 0)'
+            }).then(() => {
                 window.history.back();
-              </script>";
+            });
+        </script>
+
+        </body>
+        </html>
+        ";
+
     }
 
 } else {
 
-    header("Location: contact.php");
+    header("Location: contact-us.php");
     exit();
 
 }

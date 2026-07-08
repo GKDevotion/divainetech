@@ -229,7 +229,7 @@
             });
         });
     </script>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> 
     <!-- Jquery Library File -->
     <script src="assets/js/jquery-3.7.1.min.js"></script>
     <!-- Bootstrap js file -->
