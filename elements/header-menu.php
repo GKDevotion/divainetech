@@ -6,13 +6,7 @@
       </div>
     </div>
 	<!-- Preloader End -->
-
-	<!-- Magic Cursor Start -->
-    <div id="magic-cursor">
-      <div id="ball"></div>
-    </div>
-	<!-- Magic Cursor End -->
-
+ 
   <!-- Header Start -->
     <header class="main-header">
       <div class="header-sticky">
