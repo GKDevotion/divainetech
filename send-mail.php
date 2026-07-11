@@ -11,27 +11,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $name = $first_name . " " . $last_name;
 
-    $to = "hardikprajapati8104@gmail.com";
+    // Receiver Email
+    $to = "hello@divainetech.io";
+
+    // CC Email
+    $cc = "hardikprajapati8104@gmail.com"; // Change CC Email Here
 
     $mail_subject = "New Contact Inquiry Received - " . $name;
 
     $mail_body = "
-    New Customer Inquiry
+        New Customer Inquiry
 
-    Name: $name
+        Name: $name
 
-    Phone: $phone
+        Phone: $phone
 
-    Email: $email
+        Email: $email
 
-    Subject: $subject
+        Subject: $subject
 
-    Message:
-    $message
-    ";
-
+        Message:
+        $message
+        ";
+ 
+    // Email Headers
     $headers  = "From: noreply@" . $_SERVER['SERVER_NAME'] . "\r\n";
-    $headers .= "Reply-To: " . $email . "\r\n";
+
+    if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $headers .= "Reply-To: " . $email . "\r\n";
+    }
+
+    // Add CC
+    $headers .= "Cc: " . $cc . "\r\n";
+
     $headers .= "MIME-Version: 1.0\r\n";
     $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 
@@ -47,14 +59,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <body>
 
         <script>
-            Swal.fire({
-                title: 'Success!',
-                text: 'Your message has been sent successfully.',
-                icon: 'success',
-                confirmButtonColor: 'rgb(255, 101, 0)'
-            }).then(() => {
-                window.location.href='contact.php';
-            });
+        Swal.fire({
+            title: 'Success!',
+            text: 'Your message has been sent successfully.',
+            icon: 'success',
+            confirmButtonColor: 'rgb(255, 101, 0)'
+        }).then(() => {
+            window.location.href='contact.php';
+        });
         </script>
 
         </body>
@@ -72,14 +84,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <body>
 
         <script>
-            Swal.fire({
-                title: 'Error!',
-                text: 'Failed to send message. Please try again.',
-                icon: 'error',
-                confirmButtonColor: 'rgb(255, 101, 0)'
-            }).then(() => {
-                window.history.back();
-            });
+        Swal.fire({
+            title: 'Error!',
+            text: 'Failed to send message. Please try again.',
+            icon: 'error',
+            confirmButtonColor: 'rgb(255, 101, 0)'
+        }).then(() => {
+            window.history.back();
+        });
         </script>
 
         </body>
