@@ -1,3 +1,83 @@
+    <div class="call-project container-fluid">
+        <style>
+            .call-project{
+                position:relative;
+                overflow:hidden;
+                background: linear-gradient( 90deg, #FFD54A 0%, #FFC423 25%, #FFA30D 50%, #FF8512 75%, #FF6500 100% );
+                padding-top:40px;
+                padding-bottom:20px;
+            } 
+            /* ---- Marquee ---- */
+            .marquee-wrap{ 
+                white-space:nowrap;
+                width:100%; 
+            }
+
+            .marquee-track{
+                display:inline-flex;
+                animation: scroll 18s linear infinite;
+            }
+
+            .marquee-track span{
+                display:inline-flex;
+                align-items:center;
+                font-weight:800;
+                font-size:64px;
+                color:#fff;
+                letter-spacing:1px;
+                padding-right:40px;
+                text-transform:uppercase;
+            }
+
+            .marquee-track span.ghost{
+                -webkit-text-stroke: 1px rgba(255,255,255,0.25);
+                color:transparent;
+            }
+
+            .marquee-track .dot{
+                color:#fff;
+                -webkit-text-stroke:0;
+                font-size:28px;
+                padding:0 30px;
+            }
+            
+            @keyframes scroll{
+                0%{ transform: translateX(0); }
+                100%{ transform: translateX(-50%); }
+            }
+        
+            @media (prefers-reduced-motion: reduce){
+                .marquee-track{ animation: none; }
+            }
+            
+            @media (max-width:768px){
+                .marquee-track span{ font-size:32px; } 
+                .call-project{padding-bottom: 30px;}
+            }
+        </style>
+
+        <div class="marquee-wrap">
+            <div class="marquee-track">
+            <span>Call for Project</span>
+            <span class="dot">&bull;</span>
+            <span><a href="tel:+91 9173307640" class="text-white">+91 9173307640</a></span>
+            <span class="dot">&bull;</span>
+            <span>Call for Project</span>
+            <span class="dot">&bull;</span>
+            <span><a href="tel:+91 9173307640" class="text-white">+91 9173307640</a></span>
+            <span class="dot">&bull;</span>
+            <span>Call for Project</span>
+            <span class="dot">&bull;</span>
+            <span><a href="tel:+91 9173307640" class="text-white">+91 9173307640</a></span>
+            <span class="dot">&bull;</span>
+            <span>Call for Project</span>
+            <span class="dot">&bull;</span>
+            <span><a href="tel:+91 9173307640" class="text-white">+91 9173307640</a></span>
+            <span class="dot">&bull;</span>
+            </div>
+        </div> 
+    </div> 
+ 
     <!-- Footer Start -->
 	<footer class="main-footer">
         <div class="container">
@@ -35,23 +115,7 @@
                                     </div>
                                     <!-- Footer Links End -->
                                 </div>
-
-                                <div class="col-lg-3 col-md-4">
-                                    <!-- Footer Links Start -->
-                                    <div class="footer-links">
-                                        <h2>Socials</h2>
-                                        <ul>
-                                            <li><a href="javascript:void();"><i class="fab fa-instagram me-2"></i>Instagram</a></li>
-                                            <li><a href="javascript:void();"><i class="fab fa-facebook-f me-2"></i>Facebook</a></li>
-                                            <li><a href="javascript:void();"><i class="fab fa-twitter me-2"></i>Twitter</a></li>
-                                            <li><a href="javascript:void();"><i class="fab fa-linkedin-in me-2"></i>Linkedin</a></li>
-                                            <!-- <li><a href="javascript:void();"><i class="fab fa-pinterest-p me-2"></i>Pinterest</a></li> -->
-                                            <li><a href="javascript:void();"><i class="fab fa-telegram me-2"></i>Telegram</a></li>
-                                        </ul>
-                                    </div>
-                                    <!-- Footer Links End -->
-                                </div>
-
+ 
                                 <div class="col-lg-3 col-md-4">
                                     <!-- Footer Links Start -->
                                     <div class="footer-links">
@@ -65,13 +129,29 @@
                                     </div>
                                     <!-- Footer Links End -->
                                 </div>
+
+                                <div class="col-lg-3 col-md-4">
+                                    <!-- Footer Links Start -->
+                                    <div class="footer-links">
+                                        <h2>Socials</h2>
+                                        <ul>
+                                            <li><a href="https://www.instagram.com/divaine_tech/"><i class="fab fa-instagram me-2"></i>Instagram</a></li>
+                                            <!-- <li><a href="javascript:void();"><i class="fab fa-facebook-f me-2"></i>Facebook</a></li>
+                                            <li><a href="javascript:void();"><i class="fab fa-twitter me-2"></i>Twitter</a></li> -->
+                                            <li><a href="javascript:void();"><i class="fab fa-linkedin-in me-2"></i>Linkedin</a></li>
+                                            <!-- <li><a href="javascript:void();"><i class="fab fa-pinterest-p me-2"></i>Pinterest</a></li> -->
+                                            <li><a href="javascript:void();"><i class="fab fa-telegram me-2"></i>Telegram</a></li>
+                                        </ul>
+                                    </div>
+                                    <!-- Footer Links End -->
+                                </div>
                                 
                                 <div class="col-lg-3 col-md-4">
                                     <!-- Footer Links Start -->
                                     <div class="footer-links">
                                         <h2>Contact Us</h2>
                                         <ul>
-                                            <li><a href="javascript:void();">info@domainname.com</a></li>
+                                            <li><a href="mailto:hello@divainetech.io" style="text-transform: lowercase;">hello@divainetech.io</a></li>
                                             <li><a href="javascript:void();">+971 123456 789</a></li>
                                         </ul>
                                     </div>
