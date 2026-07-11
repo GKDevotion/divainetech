@@ -135,12 +135,12 @@
                                     <div class="footer-links">
                                         <h2>Socials</h2>
                                         <ul>
-                                            <li><a href="https://www.instagram.com/divaine_tech/"><i class="fab fa-instagram me-2"></i>Instagram</a></li>
-                                            <!-- <li><a href="javascript:void();"><i class="fab fa-facebook-f me-2"></i>Facebook</a></li>
-                                            <li><a href="javascript:void();"><i class="fab fa-twitter me-2"></i>Twitter</a></li> -->
-                                            <li><a href="javascript:void();"><i class="fab fa-linkedin-in me-2"></i>Linkedin</a></li>
-                                            <!-- <li><a href="javascript:void();"><i class="fab fa-pinterest-p me-2"></i>Pinterest</a></li> -->
-                                            <li><a href="javascript:void();"><i class="fab fa-telegram me-2"></i>Telegram</a></li>
+                                            <li><a href="https://www.instagram.com/divaine_tech/" target="_blank"><i class="fab fa-instagram me-2"></i>Instagram</a></li>
+                                            <!-- <li><a href="javascript:void();" target="_blank"><i class="fab fa-facebook-f me-2"></i>Facebook</a></li>
+                                            <li><a href="javascript:void();" target="_blank"><i class="fab fa-twitter me-2"></i>Twitter</a></li> -->
+                                            <li><a href="javascript:void();" target="_blank"><i class="fab fa-linkedin-in me-2"></i>Linkedin</a></li>
+                                            <!-- <li><a href="javascript:void();" target="_blank"><i class="fab fa-pinterest-p me-2"></i>Pinterest</a></li> -->
+                                            <li><a href="javascript:void();" target="_blank"><i class="fab fa-telegram me-2"></i>Telegram</a></li>
                                         </ul>
                                     </div>
                                     <!-- Footer Links End -->

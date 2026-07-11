@@ -115,9 +115,9 @@
 							<p class="wow fadeInUp" data-wow-delay="0.25s">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium, totam rem aperiam, eaque ipsa quae ab illo inventore et.</p>
 							<h3 class="wow fadeInUp" data-wow-delay="0.5s">follow us:</h3>
 							<ul class="wow fadeInUp" data-wow-delay="0.75s">
-								<li><a href="javascript:void();"><i class="fa-brands fa-telegram"></i></a></li>
-								<li><a href="https://www.instagram.com/divaine_tech/"><i class="fa-brands fa-instagram"></i></a></li>
-								<li><a href="javascript:void();"><i class="fa-brands fa-linkedin-in"></i></a></li>
+								<li><a href="javascript:void();" target="_blank"><i class="fa-brands fa-telegram"></i></a></li>
+								<li><a href="https://www.instagram.com/divaine_tech/" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
+								<li><a href="javascript:void();" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a></li>
 								<!-- <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li> -->
 							</ul>
 						</div>
