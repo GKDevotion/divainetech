@@ -8,97 +8,40 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email      = htmlspecialchars($_POST['email'] ?? '');
     $subject    = htmlspecialchars($_POST['subject'] ?? '');
     $message    = htmlspecialchars($_POST['msg'] ?? '');
-
+    
     $name = $first_name . " " . $last_name;
 
-    // Receiver Email
-    $to = "hardikprajapati8104@gmail.com"; 
+    $to = "hardikprajapati8104@gmail.com";
 
-    $mail_subject = "New Contact Inquiry Received - " . $name;
+    $mail_subject = "New Customer Inquiry Received - " . $name;
 
     $mail_body = "
-        New Customer Inquiry
+    Full Name: $name
 
-        Name: $name
+    Phone: $phone
 
-        Phone: $phone
+    Email: $email
 
-        Email: $email
+    Subject: $subject
 
-        Subject: $subject
+    Message:
+    $message
+    ";
 
-        Message:
-        $message
-        ";
+    $headers  = "From: noreply@" . $_SERVER['SERVER_NAME'] . "\r\n";
+    $headers .= "Reply-To: $email\r\n";
+    $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 
-   
-    // Replace this with your own domain if live
-    $domain = "https://www.divainetech.io/";
-
-    $headers = [];
-    $headers[] = "MIME-Version: 1.0";
-    $headers[] = "Content-type: text/html; charset=UTF-8";
-    $headers[] = "From: Website <no-reply@$domain>";
-    $headers[] = "Reply-To: $email";
-    $headers[] = "X-Mailer: PHP/" . phpversion();
- 
     if (mail($to, $mail_subject, $mail_body, $headers)) {
-
-        echo "
-        <!DOCTYPE html>
-        <html>
-        <head>
-            <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
-        </head>
-        <body>
-
-        <script>
-        Swal.fire({
-            title: 'Success!',
-            text: 'Your message has been sent successfully.',
-            icon: 'success',
-            confirmButtonColor: 'rgb(255, 101, 0)'
-        }).then(() => {
-            window.location.href='contact.php';
-        });
-        </script>
-
-        </body>
-        </html>
-        ";
-
+        echo "<script>
+                alert('Message sent successfully!');
+                window.location.href='contact.php';
+              </script>";
     } else {
-
-        echo "
-        <!DOCTYPE html>
-        <html>
-        <head>
-            <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
-        </head>
-        <body>
-
-        <script>
-        Swal.fire({
-            title: 'Error!',
-            text: 'Failed to send message. Please try again.',
-            icon: 'error',
-            confirmButtonColor: 'rgb(255, 101, 0)'
-        }).then(() => {
-            window.history.back();
-        });
-        </script>
-
-        </body>
-        </html>
-        ";
-
+        echo "<script>
+                alert('Failed to send message.');
+                window.history.back();
+              </script>";
     }
-
-} else {
-
-    header("Location: contact-us.php");
-    exit();
-
 }
-
 ?>
