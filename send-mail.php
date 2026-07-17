@@ -1,47 +1,98 @@
 <?php
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require 'vendor/autoload.php';
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    $first_name = htmlspecialchars($_POST['first_name'] ?? '');
-    $last_name  = htmlspecialchars($_POST['last_name'] ?? '');
-    $phone      = htmlspecialchars($_POST['phone'] ?? '');
-    $email      = htmlspecialchars($_POST['email'] ?? '');
-    $subject    = htmlspecialchars($_POST['subject'] ?? '');
-    $message    = htmlspecialchars($_POST['msg'] ?? '');
-    
-    $name = $first_name . " " . $last_name;
+    $first_name = trim($_POST['first_name'] ?? '');
+    $last_name  = trim($_POST['last_name'] ?? '');
+    $phone      = trim($_POST['phone'] ?? '');
+    $email      = trim($_POST['email'] ?? '');
+    $subject    = trim($_POST['subject'] ?? '');
+    $message    = trim($_POST['msg'] ?? '');
 
-    $to = "hardikprajapati8104@gmail.com";
+    $name = $first_name . ' ' . $last_name;
 
-    $mail_subject = "New Customer Inquiry Received - " . $name;
+    $mail = new PHPMailer(true);
 
-    $mail_body = "
-    Full Name: $name
+    try {
 
-    Phone: $phone
+        // SMTP Configuration
+        $mail->isSMTP();
+        $mail->Host       = 'smtpout.secureserver.net';     // SMTP Host
+        $mail->SMTPAuth   = true;
+        $mail->Username   = 'hello@divainetech.io';    // SMTP Email
+        $mail->Password   = 'hEl10@dwan1ek';     // SMTP Password
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS; // SSL
+        $mail->Port       = 465;
 
-    Email: $email
+        // Sender
+        $mail->setFrom('hello@divainetech.io', 'Divaine Tech Website');
 
-    Subject: $subject
+        // Recipient
+        $mail->addAddress('hello@divainetech.io', 'Divaine Tech');
 
-    Message:
-    $message
-    ";
+        // Reply to customer
+        if (!empty($email)) {
+            $mail->addReplyTo($email, $name);
+        }
 
-    $headers  = "From: noreply@" . $_SERVER['SERVER_NAME'] . "\r\n";
-    $headers .= "Reply-To: $email\r\n";
-    $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+        // Email Content
+        $mail->isHTML(true);
+        $mail->Subject = 'New Customer Inquiry Received - ' . $name;
 
-    if (mail($to, $mail_subject, $mail_body, $headers)) {
+        $mail->Body = "
+        <h2>New Contact Form Submission</h2>
+
+        <table cellpadding='8' cellspacing='0' border='1'>
+            <tr>
+                <td><strong>Name</strong></td>
+                <td>{$name}</td>
+            </tr>
+            <tr>
+                <td><strong>Email</strong></td>
+                <td>{$email}</td>
+            </tr>
+            <tr>
+                <td><strong>Phone</strong></td>
+                <td>{$phone}</td>
+            </tr>
+            <tr>
+                <td><strong>Subject</strong></td>
+                <td>{$subject}</td>
+            </tr>
+            <tr>
+                <td><strong>Message</strong></td>
+                <td>" . nl2br(htmlspecialchars($message)) . "</td>
+            </tr>
+        </table>
+        ";
+
+        $mail->AltBody = "
+            Name: {$name}
+            Email: {$email}
+            Phone: {$phone}
+            Subject: {$subject}
+
+            Message:
+            {$message}
+            ";
+
+        $mail->send();
+
         echo "<script>
-                alert('Message sent successfully!');
-                window.location.href='contact.php';
-              </script>";
-    } else {
+            alert('Message sent successfully.');
+            window.location='contact.php';
+        </script>";
+
+    } catch (Exception $e) {
+
         echo "<script>
-                alert('Failed to send message.');
-                window.history.back();
-              </script>";
+            alert('Mail could not be sent. Error: " . addslashes($mail->ErrorInfo) . "');
+            window.history.back();
+        </script>";
     }
 }
-?>
