@@ -60,19 +60,19 @@
             <div class="marquee-track">
             <span>Call for Project</span>
             <span class="dot">&bull;</span>
-            <span><a href="tel:+91 9173307640" class="text-white">+91 9173307640</a></span>
+            <span><a href="tel:+971 552783479" class="text-white">+971 552783479</a></span>
             <span class="dot">&bull;</span>
             <span>Call for Project</span>
             <span class="dot">&bull;</span>
-            <span><a href="tel:+91 9173307640" class="text-white">+91 9173307640</a></span>
+            <span><a href="tel:+971 552783479" class="text-white">+971 552783479</a></span>
             <span class="dot">&bull;</span>
             <span>Call for Project</span>
             <span class="dot">&bull;</span>
-            <span><a href="tel:+91 9173307640" class="text-white">+91 9173307640</a></span>
+            <span><a href="tel:+971 552783479" class="text-white">+971 552783479</a></span>
             <span class="dot">&bull;</span>
             <span>Call for Project</span>
             <span class="dot">&bull;</span>
-            <span><a href="tel:+91 9173307640" class="text-white">+91 9173307640</a></span>
+            <span><a href="tel:+971 552783479" class="text-white">+971 552783479</a></span>
             <span class="dot">&bull;</span>
             </div>
         </div> 
@@ -140,7 +140,7 @@
                                             <li><a href="javascript:void();" target="_blank"><i class="fab fa-twitter me-2"></i>Twitter</a></li> -->
                                             <li><a href="javascript:void();" target="_blank"><i class="fab fa-linkedin-in me-2"></i>Linkedin</a></li>
                                             <!-- <li><a href="javascript:void();" target="_blank"><i class="fab fa-pinterest-p me-2"></i>Pinterest</a></li> -->
-                                            <li><a href="javascript:void();" target="_blank"><i class="fab fa-telegram me-2"></i>Telegram</a></li>
+                                            <li><a href="https://t.me/+z_3YlueLtaw4ZDFk" target="_blank"><i class="fab fa-telegram me-2"></i>Telegram</a></li>
                                         </ul>
                                     </div>
                                     <!-- Footer Links End -->
@@ -152,7 +152,7 @@
                                         <h2>Contact Us</h2>
                                         <ul>
                                             <li><a href="mailto:hello@divainetech.io" style="text-transform: lowercase;">hello@divainetech.io</a></li>
-                                            <li><a href="javascript:void();">+971 123456 789</a></li>
+                                            <li><a href="tel:+971 552783479">+971 552783479</a></li>
                                         </ul>
                                     </div>
                                     <!-- Footer Links End -->

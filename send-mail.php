@@ -12,10 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $first_name . " " . $last_name;
 
     // Receiver Email
-    $to = "hello@divainetech.io";
-
-    // CC Email
-    $cc = "hardikprajapati8104@gmail.com"; // Change CC Email Here
+    $to = "hardikprajapati8104@gmail.com"; 
 
     $mail_subject = "New Contact Inquiry Received - " . $name;
 
@@ -33,21 +30,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         Message:
         $message
         ";
+
+   
+    // Replace this with your own domain if live
+    $domain = "https://www.divainetech.io/";
+
+    $headers = [];
+    $headers[] = "MIME-Version: 1.0";
+    $headers[] = "Content-type: text/html; charset=UTF-8";
+    $headers[] = "From: Website <no-reply@$domain>";
+    $headers[] = "Reply-To: $email";
+    $headers[] = "X-Mailer: PHP/" . phpversion();
  
-    // Email Headers
-    $headers  = "From: noreply@" . $_SERVER['SERVER_NAME'] . "\r\n";
-
-    if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $headers .= "Reply-To: " . $email . "\r\n";
-    }
-
-    // Add CC
-    $headers .= "Cc: " . $cc . "\r\n";
-
-    $headers .= "MIME-Version: 1.0\r\n";
-    $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
-
-
     if (mail($to, $mail_subject, $mail_body, $headers)) {
 
         echo "

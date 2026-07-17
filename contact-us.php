@@ -60,9 +60,9 @@
 						<div class="contact-content">
 							<div class="contact-content-title">
 								<h2>call now</h2>
-								<a href="+971 9895898589"><img src="assets/images/icon-phone.svg" alt=""></a>
+								<a href="+971 552783479"><img src="assets/images/icon-phone.svg" alt=""></a>
 							</div>
-							<a href="tel:hello@divainetech.io" class="fs-5" style="color:var(--text-color);">+971 9995598959</a> 
+							<a href="tel:+971 552783479" class="fs-5" style="color:var(--text-color);">+971 552783479</a> 
 						</div>
 						<div class="contact-image">
 							<figure class="image-anime">
@@ -115,7 +115,7 @@
 							<p class="wow fadeInUp" data-wow-delay="0.25s">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium, totam rem aperiam, eaque ipsa quae ab illo inventore et.</p>
 							<h3 class="wow fadeInUp" data-wow-delay="0.5s">follow us:</h3>
 							<ul class="wow fadeInUp" data-wow-delay="0.75s">
-								<li><a href="javascript:void();" target="_blank"><i class="fa-brands fa-telegram"></i></a></li>
+								<li><a href="https://t.me/+z_3YlueLtaw4ZDFk" target="_blank"><i class="fa-brands fa-telegram"></i></a></li>
 								<li><a href="https://www.instagram.com/divaine_tech/" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
 								<li><a href="javascript:void();" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a></li>
 								<!-- <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li> -->
